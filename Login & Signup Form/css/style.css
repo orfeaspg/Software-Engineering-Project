@@ -154,6 +154,12 @@ img.google-img{
     width: 20px;
     object-fit: cover;
 }
+.header-image {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    margin-left: 135px;
+}
 a.google{
     border: 1px solid #CACACA;
 }
