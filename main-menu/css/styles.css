@@ -1,0 +1,97 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* custom variables */
+:root {
+    /* colors */
+    --clr-purple: #7040F4;
+
+    /* fonts */
+    --ff-main: 'Poppins', sans-serif;
+}
+
+/* reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* sets the default size to 10px */
+    font-size: 62.5%;
+}
+
+/* global styles */
+body {
+    font-family: var(--ff-main);
+    color: white;
+    background-color: var(--clr-purple);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+header .welcome-msg {
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    gap: 3.5rem;
+    width: 100%;
+}
+
+main .left-col {
+    width: 50%;
+    height: 100%;
+    background-image: url('../images/main-menu-image.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 4rem;
+}
+
+main .right-col {
+    width: 50%;
+    list-style: none;
+    text-align: center;
+    background-color: rgba(5, 0, 107, 0.9);
+    padding: 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 4rem;
+}
+
+main ul.right-col li {
+    padding: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+main ul.right-col li:last-child {
+    border-bottom: none; /* Remove border-bottom */
+}
+
+main ul.right-col li a {
+    font-size: 2.4rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+}
