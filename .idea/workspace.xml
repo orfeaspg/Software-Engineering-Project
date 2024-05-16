@@ -20,12 +20,12 @@
     &quot;assignee&quot;: &quot;THe1ena&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/orfeaspg/Software-Engineering-Project.git",
-    "accountId": "fbc8a727-65fb-40b1-b2d2-fb945b069f15"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/orfeaspg/Software-Engineering-Project.git&quot;,
+    &quot;accountId&quot;: &quot;fbc8a727-65fb-40b1-b2d2-fb945b069f15&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -47,7 +47,7 @@
     "JavaScript Debug.main-menu.html.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "orfeaspg",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "/home/fotini/WebstormProjects/Software-Engineering-Project",
     "node.js.detected.package.eslint": "true",
@@ -61,6 +61,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Orfeas\Documents\CEID\8ο εξάμηνο\Τεχνολογία Λογισμικού\Project\Software Engineering Project\Software-Engineering-Project\main\js" />
       <recent name="$PROJECT_DIR$/main/css" />
       <recent name="$PROJECT_DIR$/Login &amp; Signup Form/images" />
     </key>
@@ -93,6 +94,7 @@
       <workItem from="1714671042341" duration="262000" />
       <workItem from="1714671320023" duration="318000" />
       <workItem from="1714671744695" duration="135000" />
+      <workItem from="1715849857449" duration="2412000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
