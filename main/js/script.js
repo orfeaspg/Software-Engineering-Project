@@ -25,3 +25,15 @@ links.forEach(link => {
        forms.classList.toggle("show-signup");
     })
 })
+
+const usernameLink = document.getElementById("username-link");
+
+usernameLink.addEventListener("click", () => {
+    window.location.href = "userProfile.html";
+});
+
+const logoutLink = document.getElementById("logout-link");
+
+logoutLink.addEventListener("click", () => {
+    window.location.href = "loginForm.html";
+});
