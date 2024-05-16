@@ -9,7 +9,7 @@ const message = messages.querySelectorAll('.suggestion');
 // ============== SIDEBAR ============== 
 
 // Remove active class from all menu items
-const changeActiveItem = () => {
+/*const changeActiveItem = () => {
     menuItems.forEach(item => {
         item.classList.remove('active');
     })
@@ -74,7 +74,7 @@ const changeBG = () => {
     root.style.setProperty('--white-color-lightness', whiteColorLightness);
     root.style.setProperty('--dark-color-lightness', darkColorLightness);
 }
-
+*/
 // ============== TABS ==============
 window.onload = function() {
     document.getElementById("userPostsButton").click();
@@ -115,4 +115,13 @@ function openPage(evt, pageName) {
 
 document.getElementById("createPostButton").addEventListener("click", function() {
     document.getElementById("userPostsButton").click();
+    Push.create("Hello world!", {
+        body: "How's it hangin'?",
+        icon: 'main/images/google.png',
+        timeout: 4000,
+        onClick: function () {
+            window.focus();
+            this.close();
+        }
+    });
 });
