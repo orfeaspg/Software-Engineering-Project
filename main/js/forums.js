@@ -115,13 +115,14 @@ function openPage(evt, pageName) {
 
 document.getElementById("createPostButton").addEventListener("click", function() {
     document.getElementById("userPostsButton").click();
-    Push.create("Hello world!", {
-        body: "How's it hangin'?",
-        icon: 'main/images/google.png',
-        timeout: 4000,
-        onClick: function () {
-            window.focus();
-            this.close();
-        }
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    swal({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "info",
+        closeOnClickOutside : false,
+        timer: 2500
     });
 });
