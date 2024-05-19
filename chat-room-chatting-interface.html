@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Title -->
+    <title>Chat Room</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="main/css/chat-rooms.css">
+</head>
+<body>
+<header>
+    <!-- Placeholder for main menu bar -->
+    <div id="main-menu-bar">
+        <!-- Main menu content goes here -->
+    </div>
+</header>
+<div class="chat-room-interface-container">
+    <aside class="left-column">
+        <h2>Your Conversations:</h2>
+        <ul class="conversations-list">
+            <!-- Dynamic list of private conversations -->
+            <li><span>User 1</span></li>
+            <li><span>User 2</span></li>
+            <li><span>User 3</span></li>
+        </ul>
+    </aside>
+    <main class="main-column">
+        <h1 class="chat-room-title">Chat Room Title</h1>
+        <div class="chat-interface">
+            <div class="messages">
+                <!-- Dynamic list of messages -->
+                <div class="message">
+                    <p><span class="user-name">User 1: </span>Hello, everyone!</p>
+                </div>
+                <div class="message">
+                    <p><span class="user-name">User 2: </span>Hi, User 1!</p>
+                </div>
+            </div>
+            <form class="message-input">
+                <label for="message"></label>
+                <input type="text" id="message" placeholder="Insert your message here">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </main>
+    <aside class="right-column">
+        <h2>Users in this Room:</h2>
+        <ul class="users-list">
+            <!-- Dynamic list of users in this chat room -->
+            <li><span>User 1</span></li>
+            <li><span>User 2</span></li>
+            <li><span>User 3</span></li>
+        </ul>
+    </aside>
+</div>
+</body>
+</html>
