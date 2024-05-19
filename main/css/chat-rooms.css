@@ -7,6 +7,10 @@
     --clr-purple: #7040F4;
     --clr-light-gray: #f4f4f4;
     --clr-dark-gray: #454545;
+    --clr-message-bg: #e5e5e5;
+    --clr-message-user-bg: #7040f4;
+    --clr-message-text: #000000;
+    --clr-message-user-text: #ffffff;
 
     /* fonts */
     --ff-main: 'Poppins', sans-serif;
@@ -45,7 +49,7 @@ header {
     text-align: center;
 }
 
-/* =============== Chat Rooms Selection ============== */
+/* =============== Chat Room Selection ============== */
 .chat-rooms-container {
     display: flex;
     flex-direction: column;
@@ -72,6 +76,7 @@ header {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .chat-room__title {
@@ -85,6 +90,7 @@ header {
     font-size: 1.6rem;
     color: var(--clr-dark-gray);
     margin-bottom: 1rem;
+    text-align: left;
 }
 
 .chat-room__join-btn {
@@ -95,10 +101,11 @@ header {
     background-color: var(--clr-purple);
     color: #fff;
     border-radius: 4px;
+    display: inline-block;
+    margin: 0 auto;
+    text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    display: block;
-    margin: 0 auto;
 }
 
 .chat-room__join-btn:hover {
@@ -106,7 +113,7 @@ header {
 }
 
 /* =============== Chat Room Chatting Interface ============== */
-.chat-room-interface-container {
+.chat-room-container {
     display: flex;
     flex: 1;
     height: calc(100vh - 4rem);
@@ -129,18 +136,40 @@ header {
     margin-bottom: 2rem;
 }
 
-.conversations-list,
+.conversations-list {
+    list-style: none;
+    padding: 0;
+}
+
+.conversations-list li {
+    margin-bottom: 1.5rem;
+}
+
+.conversations-list li a {
+    display: block;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    color: var(--clr-dark-gray);
+    text-decoration: none;
+}
+
+.conversations-list li:hover a {
+    background-color: var(--clr-purple);
+    color: #fff;
+}
+
 .users-list {
     list-style: none;
     padding: 0;
 }
 
-.conversations-list li,
 .users-list li {
     margin-bottom: 1.5rem;
 }
 
-.conversations-list li,
 .users-list li {
     display: block;
     padding: 1rem;
@@ -152,7 +181,6 @@ header {
     text-decoration: none;
 }
 
-.conversations-list li:hover,
 .users-list li:hover {
     background-color: var(--clr-purple);
     color: #fff;
@@ -167,7 +195,8 @@ header {
     overflow-y: auto; /* Allow scrolling if content overflows */
 }
 
-.chat-room-title {
+.chat-room-title,
+.private-discussion-title {
     font-size: 3.4rem;
     font-weight: 600;
     margin-bottom: 2rem;
@@ -225,4 +254,37 @@ header {
 
 .message-input button:hover {
     background-color: #5a2ce8;
+}
+
+/* =============== Chat Room Private Discussion ============== */
+.private-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.private-message {
+    max-width: 70%;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    position: relative;
+    display: inline-block;
+    word-wrap: break-word;
+}
+
+.message-user {
+    background-color: var(--clr-message-user-bg);
+    color: var(--clr-message-user-text);
+    align-self: flex-end;
+}
+
+.message-other {
+    background-color: var(--clr-message-bg);
+    color: var(--clr-message-text);
+    align-self: flex-start;
 }
