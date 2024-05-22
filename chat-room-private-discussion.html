@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Title -->
+    <title>Chat Room - Private Discussion</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="main/css/chat-rooms.css">
+</head>
+<body>
+<header>
+    <!-- Placeholder for main menu bar -->
+    <div id="main-menu-bar">
+        <!-- Main menu content goes here -->
+    </div>
+</header>
+<div class="chat-room-container">
+    <aside class="left-column">
+        <h2>Your Conversations:</h2>
+        <ul class="conversations-list">
+            <!-- Dynamic list of private conversations -->
+            <li><a href="chat-room-private-discussion.html">User 1</a></li>
+            <li><a href="chat-room-private-discussion.html">User 2</a></li>
+            <li><a href="chat-room-private-discussion.html">User 3</a></li>
+        </ul>
+    </aside>
+    <main class="main-column">
+        <h1 class="private-discussion-title">Private Discussion with User 1</h1>
+        <div class="chat-interface">
+            <div class="private-messages">
+                <!-- Dynamic list of messages -->
+                <div class="private-message message-other">
+                    <p><span class="user-name">User 1: </span>Hi, I wanted to share my struggles with cravings lately.
+                        Can we chat privately?</p>
+                </div>
+                <div class="private-message message-user">
+                    <p><span class="user-name">User 2: </span>Of course, User 1. I'm here to listen and support you.</p>
+                </div>
+                <div class="private-message message-other">
+                    <p><span class="user-name">User 1: </span>Thanks, it means a lot. I've been using some coping
+                        strategies, but it's been tough.</p>
+                </div>
+            </div>
+            <form class="message-input">
+                <label for="message"></label>
+                <input type="text" id="message" placeholder="Insert your message here">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>
