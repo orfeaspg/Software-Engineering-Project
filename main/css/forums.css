@@ -97,7 +97,7 @@ nav {
     background: var(--color-white);
     padding: 0.7rem 0;
     position: fixed;
-    top: 0;
+    top: 60px;
     z-index: 10;
 }
 
@@ -135,7 +135,7 @@ nav .create {
 /* =============== Main ============== */
 main {
     position: relative;
-    top: 5.4rem;
+    top: 200px;
 }
 
 main .container {
@@ -801,4 +801,49 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
 .swal-overlay {
     background-color: transparent;
     position: unset;
+}
+
+
+#menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7040F4FF;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20; /* Ensuring it's above the nav */
+}
+
+.left, .center, .right {
+    display: flex;
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-photo img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.user-info h4 {
+    margin: 0;
+    color: white;
+}
+
+#menu-bar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#menu-bar a:hover {
+    text-decoration: underline;
 }
