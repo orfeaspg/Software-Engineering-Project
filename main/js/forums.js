@@ -126,3 +126,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         timer: 2500
     });
 });
+
+const homeLink = document.getElementById("home");
+
+homeLink.addEventListener("click", () => {
+    window.location.href = "FirstPage.html";
+});
