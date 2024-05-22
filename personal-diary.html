@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Title -->
+    <title>Personal Diary</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="main/css/personal-diary.css">
+</head>
+<body>
+<header>
+    <!-- Placeholder for main menu bar -->
+    <div id="main-menu-bar">
+        <!-- Main menu content goes here -->
+    </div>
+</header>
+<div class="diary-container">
+    <aside class="left-column">
+        <div class="calendar-section">
+            <h2>Calendar</h2>
+        </div>
+        <div class="recent-entries-section">
+            <h2>Recent Entries:</h2>
+            <ul class="recent-entries-list">
+                <li><a href="#">Entry 1</a></li>
+                <li><a href="#">Entry 2</a></li>
+                <li><a href="#">Entry 3</a></li>
+                <li><a href="#">Entry 4</a></li>
+                <li><a href="#">Entry 5</a></li>
+                <li><a href="#">Entry 6</a></li>
+            </ul>
+        </div>
+    </aside>
+    <main class="main-column">
+        <h2 class="entry-title" contenteditable="true">New Entry Title</h2>
+        <form class="entry-form">
+            <label for="entry-date">Date:</label>
+            <input type="date" id="entry-date" name="entry-date">
+            <label for="entry-content">Content:</label>
+            <textarea id="entry-content" name="entry-content" placeholder="Share your thoughts, feelings, and experiences here, in your safe space, as you navigate the road to recovery."></textarea>
+            <div class="form-actions">
+                <button type="submit" class="save-btn">Save</button>
+                <button type="button" class="cancel-btn">Cancel</button>
+            </div>
+        </form>
+    </main>
+</div>
+</body>
+</html>
