@@ -44,3 +44,14 @@ forumLink.addEventListener("click", () => {
     window.location.href = "forums.html";
 });
 
+const diaryLink = document.getElementById("personal-diary");
+
+diaryLink.addEventListener("click", () => {
+    window.location.href = "personal-diary.html";
+});
+
+const homeLink = document.getElementById("home");
+
+homeLink.addEventListener("click", () => {
+    window.location.href = "FirstPage.html";
+});

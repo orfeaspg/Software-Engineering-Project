@@ -127,6 +127,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+const usernameLink = document.getElementById("username-link");
+
+usernameLink.addEventListener("click", () => {
+    window.location.href = "userProfile.html";
+});
+
+const logoutLink = document.getElementById("logout-link");
+
+logoutLink.addEventListener("click", () => {
+    window.location.href = "loginForm.html";
+});
+
+const forumLink = document.getElementById("forum-link");
+
+forumLink.addEventListener("click", () => {
+    window.location.href = "forums.html";
+});
+
+const diaryLink = document.getElementById("personal-diary");
+
+diaryLink.addEventListener("click", () => {
+    window.location.href = "personal-diary.html";
+});
+
 const homeLink = document.getElementById("home");
 
 homeLink.addEventListener("click", () => {
