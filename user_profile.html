@@ -8,7 +8,7 @@
     <!-- IconScout CDN -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="./user_profile.css">
+    <link rel="stylesheet" href="main/css/user_profile.css">
 </head>
 <body>
     <nav>
@@ -23,7 +23,7 @@
             <div class="create">
                 <label class="btn btn-primary" for="create-post">Search</label>
                 <div class="profile-photo">
-                    <img src="./images/profile-1.jpg" alt="">
+                    <img src="main/images/profile-1.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
             <div class="left">
                 <a class="profile">
                     <div class="profile-photo">
-                        <img src="./images/profile-1.jpg">
+                        <img src="main/images/profile-1.jpg">
                     </div>
                     <div class="handle">
                         <h4>Nia Ridania</h4>
@@ -45,6 +45,32 @@
                         </p>
                     </div>
                 </a>
+                <!-----------------Description------------------>
+                <div class="description">
+                    <h4>Description</h4>
+                    <div class="paragraph">
+                    <p>
+                        Text here....
+                    </p>
+                    </div>
+                </div>
+                <!------------------Streak Counter-------------->
+                <div class="sidebar">
+                    <a class="streak-level">
+                        <h3>Level Green </h3>
+                    </a>
+                </div>
+                <!------------------Status change--------------->
+                <div class="sidebar">
+                    <a class="status-change">
+                        <h3>Anonymous</h3>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </a>
+                </div>
+                
 
                 <!----------------- SIDEBAR -------------------->
                 <div class="sidebar">
@@ -57,9 +83,46 @@
                         <h3>Notification</h3>
                     </a>
                     <a class="menu-item">
-                        <span><i class="uil uil-setting"></i></span>
+                        <span><i class="uil uil-setting"></i></span> 
                         <h3>Setting</h3>
                     </a>
+                    <a class="menu-item">
+                        <h3>Change Username</h3>
+                    </a>
+                    <a class="menu-item">
+                        <h3>Change Password</h3>
+                    </a>
+                    <a class="menu-item">
+                        <h3>Change Image</h3>
+                    </a>
+                    <a class="menu-item">
+                        <h3> Edit description </h3>
+                    </a>
+                    <a class="menu-item">
+                        <span> <i class="gg-log-out"></i></span>
+                        <h3> Log out</h3>
+                    </a>
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn"><a class="menu-item">
+                            <span><i class="uil uil-setting"></i></span> 
+                            <h3>Setting</h3>
+                        </a>
+                        </button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a class="menu-item">
+                                <h3>Change Username</h3>
+                            </a>
+                            <a class="menu-item">
+                                <h3>Change Password</h3>
+                            </a>
+                            <a class="menu-item">
+                                <h3>Change Image</h3>
+                            </a>
+                            <a class="menu-item">
+                                <h3> Edit description </h3>
+                            </a>
+                        </div>
+                      </div>
                 </div>
                 <!----------------- END OF SIDEBAR -------------------->
                 <label class="btn btn-primary" for="create-post">Create Post</label>
@@ -69,7 +132,7 @@
             <div class="middle">
                 <form action="" class="create-post">
                     <div class="profile-photo">
-                        <img src="./images/profile-1.jpg">
+                        <img src="main/images/profile-1.jpg">
                     </div>
                     <input type="text" placeholder="What's on your mind, Diana ?" id="create-post">
                     <input type="submit" value="Post" class="btn btn-primary">
@@ -81,10 +144,10 @@
                         <div class="head">
                             <div class="user">
                                 <div class="profile-photo">
-                                    <img src="./images/profile-1.jpg">
+                                    <img src="main/images/profile-1.jpg">
                                 </div>
                                 <div class="info">
-                                    <h3>Lana Rose</h3>
+                                    <h3>Nia Ridania</h3>
                                     <small>Dubai, 15 Minutes Ago</small>
                                 </div>
                             </div>
@@ -94,7 +157,7 @@
                         </div>
 
                         <div class="photo">
-                            <img src="./images/feed-1.jpg">
+                            <img src="main/images/feed-1.jpg">
                         </div>
 
                         <div class="action-buttons">
@@ -109,9 +172,9 @@
                         </div>
 
                         <div class="liked-by">
-                            <span><img src="./images/profile-10.jpg"></span>
-                            <span><img src="./images/profile-4.jpg"></span>
-                            <span><img src="./images/profile-15.jpg"></span>
+                            <span><img src="main/images/profile-10.jpg"></span>
+                            <span><img src="main/images/profile-4.jpg"></span>
+                            <span><img src="main/images/profile-15.jpg"></span>
                             <p>Liked by <b>Ernest Achiever</b> and <b>2, 323 others</b></p>
                         </div>
 
@@ -124,9 +187,83 @@
                             View all 277 comments
                         </div>
                     </div>
+                 </div>
                     <!----------------- END OF FEED 1 -------------------->
 
-             <!----------------- END OF MIDDLE -------------------->
+            </div>
+              <!----------------- END OF MIDDLE -------------------------->
+             <!----------------- RIGHT -------------------->
+            <div class="right">
+                <!------------------Number Post----------------->
+                <div class="number-post">    
+                    <div class="number-frame">
+                        <h3>1 post </h3>
+                    </div>
+                </div>
+                <!------- FRIEND REQUEST ------->
+                <div class="friend-requests">
+                    <h4>Requests</h4>
+                    <div class="request">
+                        <div class="info">
+                            <div class="profile-photo">
+                                <img src="./images/profile-20.jpg">
+                            </div>
+                            <div>
+                                <h5>Hajia Bintu</h5>
+                                <p class="text-muted">8 mutual friends</p>
+                            </div>
+                        </div>
+                        <div class="action">
+                            <button class="btn btn-primary">
+                                Accept
+                            </button>
+                            <button class="btn">
+                                Decline
+                            </button>
+                        </div>
+                    </div>
+                    <div class="request">
+                        <div class="info">
+                            <div class="profile-photo">
+                                <img src="./images/profile-18.jpg">
+                            </div>
+                            <div>
+                                <h5>Edelson Mandela</h5>
+                                <p class="text-muted">2 mutual friends</p>
+                            </div>
+                        </div>
+                        <div class="action">
+                            <button class="btn btn-primary">
+                                Accept
+                            </button>
+                            <button class="btn">
+                                Decline
+                            </button>
+                        </div>
+                    </div>
+                    <div class="request">
+                        <div class="info">
+                            <div class="profile-photo">
+                                <img src="./images/profile-17.jpg">
+                            </div>
+                            <div>
+                                <h5>Megan Baldwin</h5>
+                                <p class="text-muted">5 mutual friends</p>
+                            </div>
+                        </div>
+                        <div class="action">
+                            <button class="btn btn-primary">
+                                Accept
+                            </button>
+                            <button class="btn">
+                                Decline
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!----------------- END OF RIGHT -------------------->
+        
         </div>
     </main>
 
@@ -185,6 +322,6 @@
         </div>
     </div>
 
-    <script src="./index.js"></script>
+    <script src="./user.js"></script>
 </body>
 </html>
