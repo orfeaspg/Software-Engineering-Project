@@ -11,12 +11,32 @@
     <link rel="stylesheet" href="main/css/chat-rooms.css">
 </head>
 <body>
-<header>
+
     <!-- Placeholder for main menu bar -->
-    <div id="main-menu-bar">
-        <!-- Main menu content goes here -->
+    <div id="menu-bar">
+        <div class="left">
+            <a class="profile">
+                <div class="profile-photo">
+                    <img src="main/images/user-icon.png">
+                </div>
+                <div class="user-info">
+                    <h4 id="username-link">Username</h4>
+                </div>
+            </a>
+        </div>
+
+        <div class="center">
+            <a id="home">Home</a>
+            <a id="forum-link">Forum</a>
+            <a href="#">Chat Rooms</a>
+            <a id="personal-diary">Personal Diary</a>
+        </div>
+
+        <div class="right">
+            <a id="logout-link">Log out</a>
+        </div>
     </div>
-</header>
+
 <div class="chat-room-container">
     <aside class="left-column">
         <h2>Your Conversations:</h2>
@@ -52,5 +72,8 @@
         </div>
     </main>
 </div>
+
+    <script src="main/js/script.js"></script>
+
 </body>
 </html>
