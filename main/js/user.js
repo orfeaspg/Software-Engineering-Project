@@ -33,16 +33,15 @@ menuItems.forEach(item => {
         item.classList.add('active');
         if(item.id != 'notifications') {
             document.querySelector('.notifications-popup').
-            style.display = 'none';
+                style.display = 'none';
         } else {
             document.querySelector('.notifications-popup').
-            style.display = 'block';
+                style.display = 'block';
             document.querySelector('#notifications .notification-count').
-            style.display = 'none';
+                style.display = 'none';
         }
     })
 })
-
 
 // ============== MESSAGES ============== 
 
@@ -52,7 +51,7 @@ const searchMessage = () => {
     message.forEach(user => {
         let name = user.querySelector('h5').textContent.toLowerCase();
         if(name.indexOf(val) != -1) {
-            user.style.display = 'flex'; 
+            user.style.display = 'flex';
         } else {
             user.style.display = 'none';
         }
@@ -98,17 +97,17 @@ const removeSizeSelectors = () => {
     })
 }
 
-fontSize.forEach(size => { 
-   size.addEventListener('click', () => {
+fontSize.forEach(size => {
+    size.addEventListener('click', () => {
         removeSizeSelectors();
         let fontSize;
         size.classList.toggle('active');
 
-        if(size.classList.contains('font-size-1')) { 
+        if(size.classList.contains('font-size-1')) {
             fontSize = '10px';
             root.style.setProperty('----sticky-top-left', '5.4rem');
             root.style.setProperty('----sticky-top-right', '5.4rem');
-        } else if(size.classList.contains('font-size-2')) { 
+        } else if(size.classList.contains('font-size-2')) {
             fontSize = '13px';
             root.style.setProperty('----sticky-top-left', '5.4rem');
             root.style.setProperty('----sticky-top-right', '-7rem');
@@ -128,7 +127,7 @@ fontSize.forEach(size => {
 
         // change font size of the root html element
         document.querySelector('html').style.fontSize = fontSize;
-   })
+    })
 })
 
 // Remove active class from colors
@@ -142,7 +141,7 @@ const changeActiveColorClass = () => {
 colorPalette.forEach(color => {
     color.addEventListener('click', () => {
         let primary;
-        changeActiveColorClass(); 
+        changeActiveColorClass();
 
         if(color.classList.contains('color-1')) {
             primaryHue = 252;
@@ -253,22 +252,32 @@ Bg3.addEventListener('click', () => {
     changeBG();
 });
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
+const usernameLink = document.getElementById("username-link");
+
+usernameLink.addEventListener("click", () => {
+    window.location.href = "user_profile.html";
+});
+
+const logoutLink = document.getElementById("logout-link");
+
+logoutLink.addEventListener("click", () => {
+    window.location.href = "loginForm.html";
+});
+
+const forumLink = document.getElementById("forum-link");
+
+forumLink.addEventListener("click", () => {
+    window.location.href = "forums.html";
+});
+
+const diaryLink = document.getElementById("personal-diary");
+
+diaryLink.addEventListener("click", () => {
+    window.location.href = "personal-diary.html";
+});
+
+const homeLink = document.getElementById("home");
+
+homeLink.addEventListener("click", () => {
+    window.location.href = "FirstPage.html";
+});
