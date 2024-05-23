@@ -29,7 +29,7 @@ links.forEach(link => {
 const usernameLink = document.getElementById("username-link");
 
 usernameLink.addEventListener("click", () => {
-    window.location.href = "userProfile.html";
+    window.location.href = "user_profile.html";
 });
 
 const logoutLink = document.getElementById("logout-link");
