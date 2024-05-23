@@ -221,28 +221,31 @@ body {
     text-decoration: underline;
 }
 
-
-<!-- CSS for first page left separation -->
-
-#content {
+.content-container {
     display: flex;
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
 }
 
-.left-content {
-    flex: 1;
-    padding: 20px;
+.left-column {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-left: 20px;
 }
 
-.left-content h2 {
-    margin-top: 20px;
-    margin-left: 40px;
-}
-
-
-.right-content {
-    flex: 1;
-    padding: 20px;
+.main-column {
+    width: 50%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+    margin-top: 10px;
 }
 
 .article {
@@ -250,6 +253,7 @@ body {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     padding: 10px;
+    background-color: #fff;
 }
 
 .article img {
@@ -266,16 +270,79 @@ body {
     display: block;
     text-align: right;
     color: #007bff;
+    text-decoration: none;
 }
 
-<!-- CSS for first page right separation -->
+.article a:hover {
+    text-decoration: underline;
+}
 
-.right-content a img {
-    opacity: 0.7;
+
+
+/*Diary link img in firstpage*/
+.diary-image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.diary-image {
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    display: block;
+    margin-right: 80px;
+    transition: filter 0.3s ease;
+}
+
+.diary-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
-.right-content a img:hover {
+.diary-image-wrapper:hover .diary-image {
+    filter: blur(2px);
+}
+
+.diary-image-wrapper:hover .diary-text {
     opacity: 1;
-    transform: scale(1.05);
+}
+
+/*Streak counter for front page css*/
+
+.streak-counter-container {
+    margin-top: 60px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.streak-counter-container h3 {
+    margin-bottom: 10px;
+}
+
+.streak-counter-container p {
+    margin: 5px 0;
+}
+
+.streak-counter-container button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #7040F4FF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.streak-counter-container button:hover {
+    background-color: #5c34c2;
 }

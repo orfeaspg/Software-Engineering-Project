@@ -45,10 +45,16 @@ forumLink.addEventListener("click", () => {
 });
 
 const diaryLink = document.getElementById("personal-diary");
+const diaryImageWrapper = document.querySelector(".diary-image-wrapper");
 
 diaryLink.addEventListener("click", () => {
     window.location.href = "personal-diary.html";
 });
+
+diaryImageWrapper.addEventListener("click", () => {
+    window.location.href = "personal-diary.html";
+});
+
 
 const homeLink = document.getElementById("home");
 
