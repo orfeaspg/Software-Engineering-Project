@@ -4,15 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Recovery Road </title>
+    <title>Recovery Road</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-uSpaQ1rQxvVT/LRR61rDWAOhFL6xEJj3xKP8lYPQvP5BnBX9/yb2Whdwb8pHd4/M" crossorigin="anonymous">
-
-
-    <!-- CSS -->
     <link rel="stylesheet" href="main/css/style.css">
-
-    <title>Το Όνομα Σου</title>
-
 </head>
 <body>
 <div id="menu-bar">
@@ -26,21 +20,19 @@
             </div>
         </a>
     </div>
-
     <div class="center">
         <a id="home">Home</a>
         <a id="forum-link">Forum</a>
         <a href="#">Chat Rooms</a>
-        <a id="personal-diary">Personal Diary</a>
+        <a id="personal-diary" href="personal-diary.html">Personal Diary</a>
     </div>
-
     <div class="right">
         <a id="logout-link">Log out</a>
     </div>
 </div>
 
-<div id="content">
-    <div class="left-content">
+<div class="content-container">
+    <aside class="left-column">
         <h2 style="font-weight: bold;">External Links</h2>
         <div class="article">
             <h3>Article Title 1</h3>
@@ -58,12 +50,21 @@
             <a href="#">See more</a>
         </div>
         <!-- more articles -->
-    </div>
-    <div class="right-content">
-        <a href="link-σας-εδώ">
-            <img src="main/images/diary.png" alt="Diary">
-        </a>
-    </div>
+    </aside>
+    <main class="main-column">
+        <div class="diary-image-wrapper">
+            <img src="main/images/diary.png" alt="Diary" class="diary-image">
+            <div class="diary-text">Personal Diary</div>
+        </div>
+
+        <div class="streak-counter-container">
+            <h3>Streak Counter</h3>
+            <p>Current Streak: <span id="current-streak">0</span> days</p>
+            <p>Longest Streak: <span id="longest-streak">0</span> days</p>
+            <button id="reset-streak">Reset Streak</button>
+        </div>
+
+    </main>
 
 </div>
 
