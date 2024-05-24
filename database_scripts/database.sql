@@ -77,6 +77,7 @@ CREATE TABLE `user` (
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `role_id` bigint UNSIGNED NOT NULL,
+  `anonymous` boolean DEFAULT 0 NOT NULL,
   `timestamps` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_roles` (`role_id`),
