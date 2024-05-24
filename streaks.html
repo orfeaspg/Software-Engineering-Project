@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recovery Road - Streaks</title>
+    <link rel="icon" type="image/x-icon" href="main/images/logo.png">
+    <!-- IconScout CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="main/css/streaks.css">
+</head>
+<body>
+    
+    <div id="menu-bar">
+        <div class="left">
+            <a class="profile">
+                <div class="profile-photo">
+                    <img src="main/images/user-icon.png">
+                </div>
+                <div class="user-info">
+                    <h4 id="username-link">Username</h4>
+                </div>
+            </a>
+        </div>
+    
+        <div class="center">
+            <a href="#">Home</a>
+            <a href="#">Forum</a>
+            <a href="#">Chat Rooms</a>
+            <a href="#">Personal Diary</a>
+        </div>
+    
+        <div class="right">
+            <a id="logout-link">Log out</a>
+        </div>
+    </div>
+    
+    <!-------------------------------- MAIN ----------------------------------->
+    <main>
+        <div class="container">
+            <!----------------- LEFT -------------------->
+            <div class="left">
+
+
+                <!----------------- SIDEBAR -------------------->
+                <div class="sidebar">
+                    <a class="menu-item">
+                        <span><i class="uil uil-plus"></i></span>
+                        <button id="addStreakButton">Add Streak</button>   
+                    </a>
+                    <a class="menu-item">
+                        <span><i class="uil uil-trash"></i></span>
+                        <h3>Delete Streak</h3>
+                    </a>
+                </div>
+                <!----------------- END OF SIDEBAR -------------------->
+            </div>
+
+            <!----------------- MIDDLE -------------------->
+            <div class="middle">
+                <!----------------- STREAKS -------------------->
+                <div class="streaks">
+                    <!----------------- STREAK 1 -------------------->
+                    <div class="streak">
+                        <div class="head">
+                            <div class="info">
+                                <h3><b>Absistence from Substance 1</b></h3>
+                                <small>Starting Date: 1st April 2024</small>
+                            </div>
+                        </div>
+                        <h3><b>Your current Record:</b> 1 day 2 hours 3 minutes.</h3>    
+                    </div>
+
+  
+                    <div class="streak">
+                        <div class="head">
+                            <div class="info">
+                                <h3><b>Absistence from Substance 2</b></h3>
+                                <small>Starting Date: 1st April 2024</small>
+                            </div>                          
+                        </div>
+                        <h3><b>Your current Record:</b> 1 day 2 hours 3 minutes.</h3>
+                    </div>
+                </div>
+
+                <!----------------- END OF STREAKS -------------------->
+            </div>
+             <!----------------- END OF MIDDLE -------------------->
+
+              <!----------------- RIGHT -------------------->
+            <div class="right">
+                <div class="record">
+                    <span class="icon-text">
+                        <i class="uil uil-medal"></i>
+                        <h3>Record to Beat:</h3>
+                    </span>
+                    <p>1 year 2 months 3 days 4 minutes</p>
+                </div>
+                
+                <div class="level">
+                    <h3>Current Level:</h3>
+                    <img src="main/images/024-hour.png">
+                    <p> Black Chip<p>
+                </div>
+            </div>
+         </div>          
+    </main>
+
+    <div id="addStreakModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select a Substance to Add</h2>
+            <div class="subs-choice">
+                <button class="substance-button" data-substance="Substance 1">Substance 1</button>
+                <button class="substance-button" data-substance="Substance 2">Substance 2</button>
+                <button class="substance-button" data-substance="Substance 3">Substance 3</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="calendarModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select a Start Date</h2>
+            <input type="date" id="start-date-picker">
+            <button id="save-date-button">Save Date</button>
+        </div>
+    </div>
+
+    <script src="main/js/streaks.js"></script>
+
+</body>
+</html>
