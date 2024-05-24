@@ -996,3 +996,28 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
 #menu-bar a:hover {
     text-decoration: underline;
 }
+
+#menu-bar .right .user-info {
+    position: relative; /* Make the user-info div a positioning context for the logout link */
+}
+
+#menu-bar .right .user-info .logout {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    padding: 15px; /* Adjust padding here */
+    color: black;
+    border-radius: 7px;
+    white-space: nowrap; /* Add this line to prevent the text from wrapping */
+}
+
+#menu-bar .right .user-info:hover .logout {
+    display: block;
+}
+
+.logo{
+    color: white;
+}
+
