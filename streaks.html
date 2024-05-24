@@ -65,33 +65,25 @@
                     <!----------------- STREAK 1 -------------------->
                     <div class="streak">
                         <div class="head">
-                            <div class="addiction">
-                                <div class="info">
-                                    <h3>Ethismos 1</h3>
-                                    <small>Starting Date: 1st April 2024</small>
-                                </div>
+                            <div class="info">
+                                <h3><b>Absistence from Substance 1</b></h3>
+                                <small>Starting Date: 1st April 2024</small>
                             </div>
                         </div>
-                            <div>
-                                <p><b>Current Record:</b> 1 day 2 hours 3 minutes.
-                            </div>
-                        </div>
+                        <h3><b>Your current Record:</b> 1 day 2 hours 3 minutes.</h3>    
+                    </div>
 
-
+  
                     <div class="streak">
                         <div class="head">
-                            <div class="addiction">
-                                <div class="info">
-                                    <h3>Ethismos 2</h3>
-                                    <small>Starting Date: 1st April 2024</small>
-                                </div>
-                            </div>
+                            <div class="info">
+                                <h3><b>Absistence from Substance 2</b></h3>
+                                <small>Starting Date: 1st April 2024</small>
+                            </div>                          
                         </div>
-                            <div>
-                                <p><b>Current Record:</b> 1 day 2 hours 3 minutes.
-                            </div>
-                        </div>
+                        <h3><b>Your current Record:</b> 1 day 2 hours 3 minutes.</h3>
                     </div>
+                </div>
 
                 <!----------------- END OF STREAKS -------------------->
             </div>
@@ -108,7 +100,9 @@
                 </div>
                 
                 <div class="level">
-                    <h3>Current Level:</h3><p> Bronze<p>
+                    <h3>Current Level:</h3>
+                    <img src="main/images/024-hour.png">
+                    <p> Black Chip<p>
                 </div>
             </div>
          </div>          
@@ -119,10 +113,20 @@
             <span class="close">&times;</span>
             <h2>Select a Substance to Add</h2>
             <div class="subs-choice">
-                <button>Substance 1</buttonbutton>
-                <button>Substance 2</button>
-                <button>Substance 3</button>
-                </div>
+                <button class="substance-button" data-substance="Substance 1">Substance 1</button>
+                <button class="substance-button" data-substance="Substance 2">Substance 2</button>
+                <button class="substance-button" data-substance="Substance 3">Substance 3</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="calendarModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select a Start Date</h2>
+            <input type="date" id="start-date-picker">
+            <button id="save-date-button">Save Date</button>
         </div>
     </div>
 

@@ -1,25 +1,54 @@
-// Get the modal
-var modal = document.getElementById("addStreakModal");
+// Get the modals
+const addStreakModal = document.getElementById('addStreakModal');
+const calendarModal = document.getElementById('calendarModal');
 
-// Get the button that opens the modal
-var btn = document.getElementById("addStreakButton");
+// Get the buttons that open the modals
+const addStreakButton = document.getElementById('addStreakButton');
+const substanceButtons = document.querySelectorAll('.substance-button');
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+// Get the <span> elements that close the modals
+const closeButtons = document.querySelectorAll('.modal .close');
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+// Open the first modal
+addStreakButton.onclick = function() {
+    addStreakModal.style.display = 'block';
+};
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
+// Close modals when clicking on <span> (x)
+closeButtons.forEach(closeButton => {
+    closeButton.onclick = function() {
+        addStreakModal.style.display = 'none';
+        calendarModal.style.display = 'none';
+    };
+});
 
-// When the user clicks anywhere outside of the modal, close it
+// Close modals when clicking outside of the modal content
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target === addStreakModal) {
+        addStreakModal.style.display = 'none';
     }
-}
+    if (event.target === calendarModal) {
+        calendarModal.style.display = 'none';
+    }
+};
+
+// Open the second modal when a substance is selected
+substanceButtons.forEach(button => {
+    button.onclick = function() {
+        addStreakModal.style.display = 'none';
+        calendarModal.style.display = 'block';
+    };
+});
+
+// Handle the save date button
+const saveDateButton = document.getElementById('save-date-button');
+saveDateButton.onclick = function() {
+    const startDate = document.getElementById('start-date-picker').value;
+    if (startDate) {
+        alert(`Start date selected: ${startDate}`);
+        calendarModal.style.display = 'none';
+        // You can add your logic here to handle the selected start date
+    } else {
+        alert('Please select a start date.');
+    }
+};
