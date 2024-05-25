@@ -1,19 +1,18 @@
-const mysql = require('mysql');
-require('dotenv').config(); // Load environment variables from .env file
+const express = require('express');
+const app = express();
+const connection = require('./database.js');
 
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
+app.get('/api/data', (req, res) => {
+    connection.query('SELECT * FROM `articles` ORDER BY `id` ASC LIMIT 1', (error, results) => {
+        if (error) {
+            return res.json({ error: error });
+        }
+        res.json(results);
+    });
 });
 
-connection.connect((err) => {
-    if (err) {
-        console.error('Error connecting: ' + err.stack);
-        return;
-    }
-    console.log('Connected as id ' + connection.threadId);
-});
+app.listen(3000, () => console.log('Server running on port 3000'));
 
-module.exports = connection;
+app.get('/', (req, res) => {
+    res.send('Hello, world!');
+});

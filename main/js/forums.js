@@ -1,3 +1,4 @@
+
 // Sidebar
 const menuItems = document.querySelectorAll('.menu-item');
 
@@ -6,75 +7,6 @@ const messageNotification = document.querySelector('#messages-notifications');
 const messages = document.querySelector('.suggestions');
 const message = messages.querySelectorAll('.suggestion');
 
-// ============== SIDEBAR ============== 
-
-// Remove active class from all menu items
-/*const changeActiveItem = () => {
-    menuItems.forEach(item => {
-        item.classList.remove('active');
-    })
-}
-
-menuItems.forEach(item => {
-    item.addEventListener('click', () => {
-        changeActiveItem();
-        item.classList.add('active');
-        if(item.id != 'notifications') {
-            document.querySelector('.notifications-popup').
-            style.display = 'none';
-        } else {
-            document.querySelector('.notifications-popup').
-            style.display = 'block';
-            document.querySelector('#notifications .notification-count').
-            style.display = 'none';
-        }
-    })
-})
-
-// ============== THEME / DISPLAY CUSTOMIZATION ============== 
-
-// Opens Modal
-const openThemeModal = () => {
-    themeModal.style.display = 'grid';
-}
-
-// Closes Modal
-const closeThemeModal = (e) => {
-    if(e.target.classList.contains('customize-theme')) {
-        themeModal.style.display = 'none';
-    }
-}
-
-
-// ============== FONT SIZE ============== 
-
-// remove active class from spans or font size selectors
-const removeSizeSelectors = () => {
-    fontSize.forEach(size => {
-        size.classList.remove('active');
-    })
-}
-
-// Remove active class from colors
-const changeActiveColorClass = () => {
-    colorPalette.forEach(colorPicker => {
-        colorPicker.classList.remove('active');
-    })
-}
-
-
-//Theme Background Values
-let lightColorLightness;
-let whiteColorLightness;
-let darkColorLightness;
-
-// Changes background color
-const changeBG = () => {
-    root.style.setProperty('--light-color-lightness', lightColorLightness);
-    root.style.setProperty('--white-color-lightness', whiteColorLightness);
-    root.style.setProperty('--dark-color-lightness', darkColorLightness);
-}
-*/
 // ============== TABS ==============
 window.onload = function() {
     document.getElementById("userPostsButton").click();
@@ -127,3 +59,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+fetch('/api/data')
+    .then(response => response.json())
+    .then(data => {
+        const resultsContainer = document.querySelector('#query-results');
+        data.forEach(item => {
+            const resultItem = document.createElement('p');
+            resultItem.textContent = item.description; // replace 'your_column' with the actual column name you want to display
+            resultsContainer.appendChild(resultItem);
+        });
+    })
+    .catch(error => console.error('Error:', error));
