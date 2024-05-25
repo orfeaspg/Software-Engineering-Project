@@ -32,5 +32,15 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/forum', (req, res) => {
-    res.sendFile(path.join(__dirname, '../forums.html'));
+    const query = "SELECT * FROM `articles` ORDER BY `id` ASC LIMIT 1;"; // Replace with your SQL query
+
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server error');
+        } else {
+            console.log(results);
+            res.sendFile(path.join(__dirname, '../forums.html'));
+        }
+    });
 });
