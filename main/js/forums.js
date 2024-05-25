@@ -1,4 +1,3 @@
-
 // Sidebar
 const menuItems = document.querySelectorAll('.menu-item');
 
@@ -58,15 +57,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
         timer: 2500
     });
 });
-
-fetch('/api/data')
-    .then(response => response.json())
-    .then(data => {
-        const resultsContainer = document.querySelector('#query-results');
-        data.forEach(item => {
-            const resultItem = document.createElement('p');
-            resultItem.textContent = item.description; // replace 'your_column' with the actual column name you want to display
-            resultsContainer.appendChild(resultItem);
-        });
-    })
-    .catch(error => console.error('Error:', error));
