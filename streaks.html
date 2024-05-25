@@ -15,35 +15,36 @@
     
     <div id="menu-bar">
         <div class="left">
+            <h2 class="logo">
+                Recovery Road
+            </h2>
+        </div>
+
+        <div class="center">
+            <a href="FirstPage.html">Home</a>
+            <a href="forums.html">Forum</a>
+            <a href="chat-room-selection.html">Chat Rooms</a>
+            <a href="personal-diary.html">Personal Diary</a>
+            <a href="streaks.html">Streaks</a>
+        </div>
+
+        <div class="right">
             <a class="profile">
                 <div class="profile-photo">
-                    <img src="main/images/user-icon.png">
+                    <img src="./main/images/profile-1.jpg" alt="">
                 </div>
                 <div class="user-info">
                     <h4 id="username-link">Username</h4>
+                    <a href="loginForm.html" class="logout">Log out</a>
                 </div>
             </a>
         </div>
-    
-        <div class="center">
-            <a href="#">Home</a>
-            <a href="#">Forum</a>
-            <a href="#">Chat Rooms</a>
-            <a href="#">Personal Diary</a>
-        </div>
-    
-        <div class="right">
-            <a id="logout-link">Log out</a>
-        </div>
     </div>
-    
     <!-------------------------------- MAIN ----------------------------------->
     <main>
         <div class="container">
             <!----------------- LEFT -------------------->
             <div class="left">
-
-
                 <!----------------- SIDEBAR -------------------->
                 <div class="sidebar">
                     <a class="menu-item">
@@ -57,6 +58,8 @@
                 </div>
                 <!----------------- END OF SIDEBAR -------------------->
             </div>
+            <!--------------------END OF LEFT----------------->
+
 
             <!----------------- MIDDLE -------------------->
             <div class="middle">
@@ -84,12 +87,11 @@
                         <h3><b>Your current Record:</b> 1 day 2 hours 3 minutes.</h3>
                     </div>
                 </div>
-
                 <!----------------- END OF STREAKS -------------------->
             </div>
-             <!----------------- END OF MIDDLE -------------------->
+            <!----------------- END OF MIDDLE -------------------->
 
-              <!----------------- RIGHT -------------------->
+            <!----------------- RIGHT -------------------->
             <div class="right">
                 <div class="record">
                     <span class="icon-text">
@@ -105,8 +107,12 @@
                     <p> Black Chip<p>
                 </div>
             </div>
-         </div>          
+         </div>    
+         
+        <!----------------END OF RIGHT----------------->
     </main>
+    
+
 
     <div id="addStreakModal" class="modal">
         <div class="modal-content">
@@ -131,6 +137,7 @@
     </div>
 
     <script src="main/js/streaks.js"></script>
+    <script src="main/js/script.js"></script>
 
 </body>
 </html>
