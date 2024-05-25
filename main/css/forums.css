@@ -582,3 +582,12 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
 .logo{
     color: white;
 }
+
+.contact-link {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    text-decoration: underline;
+    color: black;
+    font-size: 16px;
+}

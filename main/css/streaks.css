@@ -360,3 +360,12 @@ main .container .right {
     text-decoration: none;
     cursor: pointer;
 }
+
+.contact-link {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    text-decoration: underline;
+    color: black;
+    font-size: 16px;
+}

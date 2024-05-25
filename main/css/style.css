@@ -95,6 +95,14 @@ form{
     cursor: pointer;
     padding: 5px;
 }
+.field.button-field {
+    margin-top: 130px; /* Αύξηση του margin-top */
+    position: relative;
+    height: 50px;
+    width: 100%;
+    border-radius: 6px;
+}
+
 .field button{
     color: #fff;
     background-color: #0171d3;
@@ -373,6 +381,7 @@ body {
 
 .streak-counter-container {
     margin-top: 60px;
+    margin-right: 40px;
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -399,4 +408,23 @@ body {
 
 .streak-counter-container button:hover {
     background-color: #5c34c2;
+}
+
+.contact-link {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    text-decoration: underline;
+    color: black;
+    font-size: 16px;
+}
+
+.textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical;
 }
