@@ -1,7 +1,11 @@
 const mysql = require('mysql');
 const express = require('express');
+const session = require('express-session');
 const app = express();
 const path = require('path');
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../')));
 
@@ -27,8 +31,34 @@ module.exports = connection;
 
 app.listen(3000, () => console.log('Server running on port 3000'));
 
+//login
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../loginForm.html'));
+});
+
+app.use(session({
+    secret: 'session_pass',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}));
+
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+    console.log(`Username: ${username}, Password: ${password}`); // Add this line
+    const query = "SELECT * FROM user WHERE username = ? AND password = ?";
+    connection.query(query, [username, password], (err, results) => {
+        console.log(results)
+        if (err) {
+            console.error(err);
+            res.json({ status: 'error', message: 'Something went wrong.' });
+        } else if (results.length > 0) {
+            req.session.user = results[0];
+            res.json({ status: 'success', redirectUrl: '/forum' });
+        } else {
+            res.json({ status: 'error', message: 'Invalid username or password.' });
+        }
+    });
 });
 
 app.get('/forum', (req, res) => {
@@ -44,3 +74,4 @@ app.get('/forum', (req, res) => {
         }
     });
 });
+
