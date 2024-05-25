@@ -60,6 +60,7 @@ body {
     top: 0;
     width: 100%;
     z-index: 20;
+    height: 63.19px;
 }
 
 /*----------Menu----------*/
@@ -118,6 +119,12 @@ body {
 
 .logo{
     color: white;
+}
+
+.right .profile .profile-photo {
+    width: 43.19px;
+    height: 43.19px;
+
 }
 /* =============== Main ============== */
 main {

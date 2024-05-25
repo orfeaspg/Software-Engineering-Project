@@ -45,7 +45,7 @@ html {
 
 /* global styles */
 body {
-    font-family: var(--ff-main);
+    font-family: 'Poppins', sans-serif;
     font-size: var(--fs-main);
     background-color: var(--color-light);
     display: flex;
@@ -257,5 +257,4 @@ body {
 .right .profile .profile-photo {
     width: 43.19px;
     height: 43.19px;
-
 }
