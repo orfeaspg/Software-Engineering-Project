@@ -1,4 +1,11 @@
 const mysql = require('mysql');
+const express = require('express');
+const app = express();
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, '../')));
+
+
 require('dotenv').config(); // Load environment variables from .env file
 
 const connection = mysql.createConnection({
@@ -17,3 +24,13 @@ connection.connect((err) => {
 });
 
 module.exports = connection;
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '../loginForm.html'));
+});
+
+app.get('/forum', (req, res) => {
+    res.sendFile(path.join(__dirname, '../forums.html'));
+});
