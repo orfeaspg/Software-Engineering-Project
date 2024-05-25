@@ -43,24 +43,25 @@ app.use(session({
     cookie: { secure: false }
 }));
 
+//login
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-    console.log(`Username: ${username}, Password: ${password}`); // Add this line
     const query = "SELECT * FROM user WHERE username = ? AND password = ?";
     connection.query(query, [username, password], (err, results) => {
-        console.log(results)
         if (err) {
             console.error(err);
             res.json({ status: 'error', message: 'Something went wrong.' });
         } else if (results.length > 0) {
             req.session.user = results[0];
-            res.json({ status: 'success', redirectUrl: '/forum' });
+            req.session.username = results[0].username;
+            res.json({ status: 'success', redirectUrl: '/home', username: results[0].username });
         } else {
             res.json({ status: 'error', message: 'Invalid username or password.' });
         }
     });
 });
 
+//forum
 app.get('/forum', (req, res) => {
     const query = "SELECT * FROM `articles` ORDER BY `id` ASC LIMIT 1;"; // Replace with your SQL query
 
@@ -75,3 +76,8 @@ app.get('/forum', (req, res) => {
     });
 });
 
+app.get('/home', (req, res) => {
+    if (req.session.user) {
+        res.sendFile(path.join(__dirname, '../FirstPage.html'));
+    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+});

@@ -26,7 +26,7 @@ links.forEach(link => {
     })
 })
 
-
+//login
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
     let formData = new URLSearchParams(new FormData(event.target)).toString();
@@ -40,9 +40,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             let messageElement = document.getElementById('message');
             if (data.status === 'success') {
                 window.location.href = data.redirectUrl;
+                document.querySelector('#username').textContent = data.username;
             } else {
                 messageElement.style.color = 'red';
             }
