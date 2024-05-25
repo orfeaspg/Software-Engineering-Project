@@ -7,8 +7,6 @@ CREATE TABLE `articles` (
   `title` text NOT NULL,
   `description` text DEFAULT NULL,
   `thumbnail_path` text DEFAULT NULL,
-  `updated_at` datetime NOT NULL,
-  `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
@@ -24,8 +22,6 @@ CREATE TABLE `external_links` (
   `title` text NOT NULL,
   `description` text DEFAULT NULL,
   `url` text DEFAULT NULL,
-  `updated_at` datetime NOT NULL,
-  `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
