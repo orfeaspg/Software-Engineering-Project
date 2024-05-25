@@ -195,7 +195,8 @@ body {
     align-items: center;
     background-color: #7040F4FF;
     padding: 10px;
-    height: 63.19px;
+    height: 57px;
+    font-size: 92%
 }
 
 #menu-bar .right {
