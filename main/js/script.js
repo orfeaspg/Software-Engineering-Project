@@ -26,21 +26,4 @@ links.forEach(link => {
     })
 })
 
-const usernameLink = document.getElementById("username-link");
-
-usernameLink.addEventListener("click", () => {
-    window.location.href = "user_profile.html";
-});
-
-
-const diaryLink = document.getElementById("personal-diary");
-const diaryImageWrapper = document.querySelector(".diary-image-wrapper");
-
-diaryLink.addEventListener("click", () => {
-    window.location.href = "personal-diary.html";
-});
-
-diaryImageWrapper.addEventListener("click", () => {
-    window.location.href = "personal-diary.html";
-});
 
