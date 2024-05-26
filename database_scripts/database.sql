@@ -5,9 +5,19 @@ USE recovery_road;
 CREATE TABLE `articles` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
+  `website_name` text DEFAULT NULL,
   `description` text DEFAULT NULL,
+  `url` text DEFAULT NULL,
   `thumbnail_path` text DEFAULT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+CREATE TABLE `posts` (
+`id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+`name` text NOT NULL,
+`description` text DEFAULT NULL,
+`thumbnail_path` text DEFAULT NULL,
+PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 CREATE TABLE `chat_rooms` (
@@ -78,14 +88,18 @@ CREATE TABLE `room_messages` (
 CREATE TABLE `user` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `surname` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `role_id` bigint UNSIGNED NOT NULL,
+  `post_id` bigint UNSIGNED NOT NULL,
   `anonymous` boolean DEFAULT 0 NOT NULL,
   `timestamps` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_roles` (`role_id`),
-  CONSTRAINT `fk_user_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`) ON UPDATE CASCADE
+  CONSTRAINT `fk_user_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_user_posts` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 CREATE TABLE `streak_counter` (
