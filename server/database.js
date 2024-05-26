@@ -52,7 +52,6 @@ app.post('/login', (req, res) => {
             console.error(err);
             res.json({ status: 'error', message: 'Something went wrong.' });
         } else if (results.length > 0) {
-            console.log(results);
             req.session.user = results[0];
             req.session.username = results[0].username;
             if(results[0].role_id === 2){
@@ -66,21 +65,23 @@ app.post('/login', (req, res) => {
 
 //pages
 app.get('/forum', (req, res) => {
-    const query = "SELECT * FROM `articles` ORDER BY `id` ASC LIMIT 1;";
     if (req.session.user) {
-        connection.query(query, (err, results) => {
-            if (err) {
-                console.error(err);
-                res.status(500).send('Server error');
-            } else {
-                console.log(results);
-                res.sendFile(path.join(__dirname, '../forums.html'));
-            }
-        });
-    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
-
+        res.sendFile(path.join(__dirname, '../forums.html'));
+    }else (res.sendFile(path.join(__dirname, '../loginForm.html')));
 });
 
+app.get('/forum-posts', (req, res) => {
+    const query = "SELECT * FROM `articles` ORDER BY `id` ASC LIMIT 5;";
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server error');
+        } else {
+            console.log(results);
+            res.json(results);
+        }
+    });
+});
 
 app.get('/home', (req, res) => {
     if (req.session.user) {

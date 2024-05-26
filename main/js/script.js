@@ -71,8 +71,8 @@ window.onload = function (){
             externalLinks.innerHTML = data.map(link => {
                 return `<div class="article">
                     <h3>${link.title}</h3>
-                    <img src="main/images/article1.jpg" alt="Article 1" style="width: 100px; height: auto;">
                     <p>${link.description}</p>
+                    <img src="${link.thumbnail_path}" alt="Article 1" style="width: 100px; height: auto;">
                     <a href="${link.url}">See more</a>
                    </div>`
             }).join('');
@@ -105,5 +105,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
         })
         .catch(error => console.error('Error:', error));
 });
-
-//query for external links
