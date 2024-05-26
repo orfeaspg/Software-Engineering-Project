@@ -568,7 +568,7 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
     background-color: white;
     padding: 15px;
     color: black;

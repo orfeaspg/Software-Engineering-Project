@@ -128,3 +128,13 @@ app.get('/get-username', (req, res) => {
         res.json({ username: null });
     }
 });
+
+//logout
+app.post('/logout', async (req, res) => {
+    req.session.destroy((err) => {
+        if(err) {
+            res.json({ status: 'error', message: 'Something went wrong.'});
+        }
+    })
+    res.json({ status: 'success', redirectUrl: '/login' });
+});
