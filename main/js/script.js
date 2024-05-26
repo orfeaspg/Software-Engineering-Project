@@ -62,6 +62,22 @@ window.onload = function (){
             }
         })
         .catch(error => console.error('Error:', error));
+
+    fetch('/external-links')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            let externalLinks = document.querySelector('#externalLinks');
+            externalLinks.innerHTML = data.map(link => {
+                return `<div class="article">
+                    <h3>${link.title}</h3>
+                    <img src="main/images/article1.jpg" alt="Article 1" style="width: 100px; height: auto;">
+                    <p>${link.description}</p>
+                    <a href="${link.url}">See more</a>
+                   </div>`
+            }).join('');
+        })
+        .catch(error => console.error('Error:', error));
 };
 
 //logout
@@ -89,3 +105,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
         })
         .catch(error => console.error('Error:', error));
 });
+
+//query for external links

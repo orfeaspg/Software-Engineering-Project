@@ -66,7 +66,7 @@ app.post('/login', (req, res) => {
 
 //pages
 app.get('/forum', (req, res) => {
-    const query = "SELECT * FROM `articles` ORDER BY `id` ASC LIMIT 1;"; // Replace with your SQL query
+    const query = "SELECT * FROM `articles` ORDER BY `id` ASC LIMIT 1;";
     if (req.session.user) {
         connection.query(query, (err, results) => {
             if (err) {
@@ -84,9 +84,22 @@ app.get('/forum', (req, res) => {
 
 app.get('/home', (req, res) => {
     if (req.session.user) {
-        res.sendFile(path.join(__dirname, '../firstPage.html'));
-    }
-    else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+        res.sendFile(path.join(__dirname, '../FirstPage.html'));
+    }else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+});
+
+
+//external links query
+app.get('/external-links', (req, res) => {
+    const query = "SELECT * FROM `external_links` ORDER BY `id` ASC LIMIT 3;";
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server error');
+        } else {
+            res.json(results);
+        }
+    });
 });
 
 app.get('/chat', (req, res) => {
