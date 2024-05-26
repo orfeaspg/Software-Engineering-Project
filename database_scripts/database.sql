@@ -18,7 +18,7 @@ CREATE TABLE `posts` (
 `user_id` bigint NOT NULL,
 `description` text DEFAULT NULL,
 `thumbnail_path` text DEFAULT NULL,
-PRIMARY KEY (`id`)
+PRIMARY KEY (`id`),
     CONSTRAINT `fk_user_posts` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
