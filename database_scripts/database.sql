@@ -15,7 +15,7 @@ CREATE TABLE `articles` (
 CREATE TABLE `posts` (
 `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
 `name` text NOT NULL,
-`user_id` bigint UNSIGNED DEFAULT NULL,
+`user_id` bigint NOT NULL,
 `description` text DEFAULT NULL,
 `thumbnail_path` text DEFAULT NULL,
 PRIMARY KEY (`id`)
