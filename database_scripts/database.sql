@@ -18,9 +18,7 @@ CREATE TABLE `posts` (
 `user_id` bigint NOT NULL,
 `description` text DEFAULT NULL,
 `thumbnail_path` text DEFAULT NULL,
-PRIMARY KEY (`id`),
-KEY `fk_user_posts` (`user_id`),
-CONSTRAINT `fk_user_posts` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON UPDATE CASCADE
+PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 CREATE TABLE `chat_rooms` (
