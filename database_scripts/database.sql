@@ -14,7 +14,6 @@ CREATE TABLE `articles` (
 
 CREATE TABLE `posts` (
 `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
-`name` text NOT NULL,
 `user_id` bigint NOT NULL,
 `description` text DEFAULT NULL,
 `thumbnail_path` text DEFAULT NULL,
@@ -157,15 +156,15 @@ INSERT INTO roles (role_id, name, label) VALUES
 (5, 'volunteer', 'Volunteer');
 
 INSERT INTO user (id, username, name, surname, password, email, role_id,  timestamps) VALUES
-(1, 'Akis', 'Akis', 'Papapanagiotou', 'akis1', 'akis@example.com', 2,NOW()),
-(2, 'Elena', 'Elena', 'Thanopoulou',  'elena1', 'elena@example.com', 2, NOW()),
-(3, 'Iro', 'Iro', 'Kamarinou',  'iro1', 'iro@example.com', 2, NOW()),
-(4, 'Orfeas', 'Orfeas', 'Pourdourides', 'orfeas1', 'orfeas@example.com', 2, NOW()),
-(5, 'Thomas', 'Thomas', 'Nikolaou',  'thomas1', 'thomas@example.com', 2, NOW()),
-(6, 'Chris','Chris', 'Papas',  'password1', 'chris@example.com', 1, NOW()),
-(7, 'Sia','Sia', 'Panou',  'password1', 'sia@example.com', 3, NOW()),
-(8, 'Bob', 'Bob', 'Seen',  'password1', 'bob@example.com', 4, NOW()),
-(9, 'Mary', 'Maria', 'Menounou', 'password1', 'mary@example.com', 5, NOW());
+(1, 'akis', 'Akis', 'Papapanagiotou', 'akis1', 'akis@example.com', 2,NOW()),
+(2, 'elena', 'Elena', 'Thanopoulou',  'elena1', 'elena@example.com', 2, NOW()),
+(3, 'iro', 'Iro', 'Kamarinou',  'iro1', 'iro@example.com', 2, NOW()),
+(4, 'orfeas', 'Orfeas', 'Pourdourides', 'orfeas1', 'orfeas@example.com', 2, NOW()),
+(5, 'thomas', 'Thomas', 'Nikolaou',  'thomas1', 'thomas@example.com', 2, NOW()),
+(6, 'chris','Chris', 'Papas',  'password1', 'chris@example.com', 1, NOW()),
+(7, 'sia','Sia', 'Panou',  'password1', 'sia@example.com', 3, NOW()),
+(8, 'bob', 'Bob', 'Seen',  'password1', 'bob@example.com', 4, NOW()),
+(9, 'mary', 'Maria', 'Menounou', 'password1', 'mary@example.com', 5, NOW());
 
 
 
@@ -194,3 +193,15 @@ INSERT INTO articles (id, title, description, thumbnail_path) VALUES
 (8, 'Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis.', 'Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', '/main/images/feed-1.jpg'),
 (9, 'In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', '/main/images/feed-2.jpg'),
 (10, 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.', '/main/images/feed-3.jpg');
+
+INSERT INTO posts (id, user_id, description, thumbnail_path) VALUES
+(1, 1, 'Pellentesque ultrices mattis odio. Donec vitae nisi.', '/main/images/feed-7.jpg'),
+(2, 2, 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae, Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.', null),
+(3, 3, 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', '/main/images/feed-5.jpg'),
+(4, 4, 'Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.', null),
+(5, 5, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', null),
+(6, 6, 'Nullam porttitor lacus at turpis.', '/main/images/feed-2.jpg'),
+(7, 7, 'Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.', '/main/images/feed-1.jpg'),
+(8, 8, 'Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', '/main/images/feed-7.jpg'),
+(9, 9,'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', '/main/images/feed-6.jpg'),
+(10, 1,'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', '/main/images/feed-5.jpg');

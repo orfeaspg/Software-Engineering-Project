@@ -67,17 +67,28 @@ app.post('/login', (req, res) => {
 app.get('/forum', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../forums.html'));
-    }else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+    }else (res.redirect("/login"));
 });
 
-app.get('/forum-posts', (req, res) => {
+app.get('/forum-articles', (req, res) => {
     const query = "SELECT * FROM `articles` ORDER BY `id` ASC LIMIT 5;";
     connection.query(query, (err, results) => {
         if (err) {
             console.error(err);
             res.status(500).send('Server error');
         } else {
-            console.log(results);
+            res.json(results);
+        }
+    });
+});
+
+app.get('/forum-posts', (req, res) => {
+    const query = "SELECT * FROM `posts` INNER JOIN `user` ON `posts`.`user_id` = `user`.`id` ORDER BY `posts`.`id` ASC LIMIT 5;";
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server error');
+        } else {
             res.json(results);
         }
     });
@@ -86,7 +97,7 @@ app.get('/forum-posts', (req, res) => {
 app.get('/home', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../FirstPage.html'));
-    }else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+    }else (res.redirect("/login"));
 });
 
 
@@ -106,43 +117,43 @@ app.get('/external-links', (req, res) => {
 app.get('/chat', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../chat-room-selection.html'));
-    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+    } else (res.redirect("/login"));
 });
 
 app.get('/diary', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../personal-diary.html'));
-    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+    } else (res.redirect("/login"));
 });
 
 app.get('/streaks', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../streaks.html'));
-    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+    } else (res.redirect("/login"));
 });
 
 app.get('/profile', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../user_profile.html'));
-    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+    } else (res.redirect("/login"));
 });
 
 app.get('/contact_us', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../contactForm.html'));
-    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+    } else (res.redirect("/login"));
 });
 
 app.get('/admin', (req, res) => {
     if (req.session.user && req.session.user.role_id === 2) {
         res.sendFile(path.join(__dirname, '../admin.html'));
-    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+    } else (res.redirect("/login"));
 });
 
 //set username on the menu
 app.get('/get-username', (req, res) => {
     if (req.session.username) {
-        res.json({ username: req.session.username });
+        res.json({ username: req.session.username, name: req.session.user.name, surname: req.session.user.surname });
     } else {
         res.json({ username: null });
     }

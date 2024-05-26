@@ -58,7 +58,7 @@ window.onload = function (){
         .then(response => response.json())
         .then(data => {
             if (data.username) {
-                document.querySelector('#username').textContent = data.username;
+                document.querySelector('#username').textContent = "@"+data.username;
             }
         })
         .catch(error => console.error('Error:', error));

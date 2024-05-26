@@ -58,30 +58,31 @@ window.onload = function (){
         .then(response => response.json())
         .then(data => {
             if (data.username) {
-                document.querySelector('#username').textContent = data.username;
+                document.querySelector('#username').textContent = "@"+data.username;
             }
         })
         .catch(error => console.error('Error:', error));
-
-    fetch('/external-links')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            let externalLinks = document.querySelector('#externalLinks');
-            externalLinks.innerHTML = data.map(link => {
-                return `<div class="article">
-                    <h3>${link.title}</h3>
-                    <p>${link.description}</p>
-                    <img src="${link.thumbnail_path}" alt="Article 1" style="width: 100px; height: auto;">
-                    <a href="${link.url}">See more</a>
-                   </div>`
-            }).join('');
-        })
-        .catch(error => console.error('Error:', error));
+    if(document.querySelector('#externalLinks')){
+        fetch('/external-links')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                let externalLinks = document.querySelector('#externalLinks');
+                externalLinks.innerHTML = data.map(link => {
+                    return `<div class="article">
+                        <h3>${link.title}</h3>
+                        <p>${link.description}</p>
+                        <img src="${link.thumbnail_path}" alt="Article 1" style="width: 100px; height: auto;">
+                        <a href="${link.url}">See more</a>
+                       </div>`
+                }).join('');
+            })
+            .catch(error => console.error('Error:', error));
+    }
 };
 
 //logout
-document.getElementById('logoutButton').addEventListener('click', function() {
+document.getElementById('logoutButton')?.addEventListener('click', function() {
 fetch('/logout', {
     method: 'POST'
 })
@@ -96,12 +97,14 @@ fetch('/logout', {
 
 //admin exclusive pages
 document.addEventListener('DOMContentLoaded', (event) => {
-    fetch('/get-role')
-        .then(response => response.json())
-        .then(data => {
-            if (data.role_id !== 2) {
-                document.querySelector('#adminLink').style.display = 'none';
-            }
-        })
-        .catch(error => console.error('Error:', error));
+    if(document.querySelector('#adminLink')){
+        fetch('/get-role')
+            .then(response => response.json())
+            .then(data => {
+                if (data.role_id !== 2) {
+                    document.querySelector('#adminLink').style.display = 'none';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
 });

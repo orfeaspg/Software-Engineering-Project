@@ -27,14 +27,19 @@ menuItems.forEach(item => {
 })
 
 window.onload = function (){
-    fetch('/get-username')
-        .then(response => response.json())
-        .then(data => {
-            if (data.username) {
-                document.querySelector('#username').textContent = data.username;
-            }
-        })
-        .catch(error => console.error('Error:', error));
+        fetch('/get-username')
+            .then(response => response.json())
+            .then(data => {
+                if (data.username) {
+                    document.querySelector('#username').textContent = "@" + data.username;
+                    if(document.querySelector('#name-surname-profile' && '#username-profile')) {
+                        document.querySelector('#username-profile').textContent = "@" + data.username;
+                        document.querySelector('#name-surname-profile').textContent = data.name + " " + data.surname;
+                    }
+                }
+            })
+            .catch(error => console.error('Error:', error));
+
 };
 
 //logout
