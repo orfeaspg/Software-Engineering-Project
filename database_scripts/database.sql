@@ -15,9 +15,11 @@ CREATE TABLE `articles` (
 CREATE TABLE `posts` (
 `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
 `name` text NOT NULL,
+`user_id` bigint UNSIGNED DEFAULT NULL,
 `description` text DEFAULT NULL,
 `thumbnail_path` text DEFAULT NULL,
 PRIMARY KEY (`id`)
+    CONSTRAINT `fk_user_posts` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 CREATE TABLE `chat_rooms` (
@@ -93,13 +95,11 @@ CREATE TABLE `user` (
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `role_id` bigint UNSIGNED NOT NULL,
-  `post_id` bigint UNSIGNED DEFAULT NULL,
   `anonymous` boolean DEFAULT 0 NOT NULL,
   `timestamps` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_roles` (`role_id`),
   CONSTRAINT `fk_user_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_user_posts` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 CREATE TABLE `streak_counter` (
@@ -157,16 +157,16 @@ INSERT INTO roles (role_id, name, label) VALUES
 (4, 'therapist', 'Therapist'),
 (5, 'volunteer', 'Volunteer');
 
-INSERT INTO user (id, username, name, surname, password, email, role_id, post_id, timestamps) VALUES
-(1, 'Akis', 'Akis', 'Papapanagiotou', 'akis1', 'akis@example.com', 2, '',NOW()),
-(2, 'Elena', 'Elena', 'Thanopoulou',  'elena1', 'elena@example.com', 2, '', NOW()),
-(3, 'Iro', 'Iro', 'Kamarinou',  'iro1', 'iro@example.com', 2,'', NOW()),
-(4, 'Orfeas', 'Orfeas', 'Pourdourides', 'orfeas1', 'orfeas@example.com', 2,'', NOW()),
-(5, 'Thomas', 'Thomas', 'Nikolaou',  'thomas1', 'thomas@example.com', 2,'', NOW()),
-(6, 'Chris','Chris', 'Papas',  'password1', 'chris@example.com', 1,'', NOW()),
-(7, 'Sia','Sia', 'Panou',  'password1', 'sia@example.com', 3,'', NOW()),
-(8, 'Bob', 'Bob', 'Seen',  'password1', 'bob@example.com', 4,'', NOW()),
-(9, 'Mary', 'Maria', 'Menounou', 'password1', 'mary@example.com', 5,'', NOW());
+INSERT INTO user (id, username, name, surname, password, email, role_id,  timestamps) VALUES
+(1, 'Akis', 'Akis', 'Papapanagiotou', 'akis1', 'akis@example.com', 2,NOW()),
+(2, 'Elena', 'Elena', 'Thanopoulou',  'elena1', 'elena@example.com', 2, NOW()),
+(3, 'Iro', 'Iro', 'Kamarinou',  'iro1', 'iro@example.com', 2, NOW()),
+(4, 'Orfeas', 'Orfeas', 'Pourdourides', 'orfeas1', 'orfeas@example.com', 2, NOW()),
+(5, 'Thomas', 'Thomas', 'Nikolaou',  'thomas1', 'thomas@example.com', 2, NOW()),
+(6, 'Chris','Chris', 'Papas',  'password1', 'chris@example.com', 1, NOW()),
+(7, 'Sia','Sia', 'Panou',  'password1', 'sia@example.com', 3, NOW()),
+(8, 'Bob', 'Bob', 'Seen',  'password1', 'bob@example.com', 4, NOW()),
+(9, 'Mary', 'Maria', 'Menounou', 'password1', 'mary@example.com', 5, NOW());
 
 
 
