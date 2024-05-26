@@ -26,8 +26,9 @@ links.forEach(link => {
     })
 })
 
+
 //login
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+document.getElementById('loginForm')?.addEventListener('submit', function(event) {
     event.preventDefault();
     let formData = new URLSearchParams(new FormData(event.target)).toString();
     console.log(formData);
@@ -44,11 +45,21 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             let messageElement = document.getElementById('message');
             if (data.status === 'success') {
                 window.location.href = data.redirectUrl;
-                document.querySelector('#username').textContent = data.username;
             } else {
                 messageElement.style.color = 'red';
+                messageElement.textContent = data.message;
             }
-            messageElement.textContent = data.message;
         })
         .catch(error => console.error('Error:', error));
 });
+
+window.onload = function (){
+    fetch('/get-username')
+        .then(response => response.json())
+        .then(data => {
+            if (data.username) {
+                document.querySelector('#username').textContent = data.username;
+            }
+        })
+        .catch(error => console.error('Error:', error));
+};

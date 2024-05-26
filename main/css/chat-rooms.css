@@ -423,6 +423,7 @@ body {
 
 #menu-bar .right .user-info {
     position: relative;
+    width: 90px;
 }
 
 #menu-bar .right .user-info .logout {

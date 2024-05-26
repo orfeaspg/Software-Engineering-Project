@@ -54,7 +54,7 @@ app.post('/login', (req, res) => {
         } else if (results.length > 0) {
             req.session.user = results[0];
             req.session.username = results[0].username;
-            res.json({ status: 'success', redirectUrl: '/home', username: results[0].username });
+            res.json({ status: 'success', redirectUrl: '/home' });
         } else {
             res.json({ status: 'error', message: 'Invalid username or password.' });
         }
@@ -80,4 +80,13 @@ app.get('/home', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../FirstPage.html'));
     } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+});
+
+
+app.get('/get-username', (req, res) => {
+    if (req.session.username) {
+        res.json({ username: req.session.username });
+    } else {
+        res.json({ username: null });
+    }
 });

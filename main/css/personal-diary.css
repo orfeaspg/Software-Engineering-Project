@@ -195,8 +195,8 @@ body {
     align-items: center;
     background-color: #7040F4FF;
     padding: 10px;
-    height: 57px;
-    font-size: 92%
+    height: 63.19px;
+    font-size: 100%
 }
 
 #menu-bar .right {
@@ -233,6 +233,7 @@ body {
 
 #menu-bar .right .user-info {
     position: relative;
+    width: 90px;
 }
 
 #menu-bar .right .user-info .logout {

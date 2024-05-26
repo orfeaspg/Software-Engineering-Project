@@ -52,3 +52,14 @@ saveDateButton.onclick = function() {
         alert('Please select a start date.');
     }
 };
+
+window.onload = function (){
+    fetch('/get-username')
+        .then(response => response.json())
+        .then(data => {
+            if (data.username) {
+                document.querySelector('#username').textContent = data.username;
+            }
+        })
+        .catch(error => console.error('Error:', error));
+};

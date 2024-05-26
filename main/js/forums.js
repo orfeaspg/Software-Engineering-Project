@@ -7,9 +7,6 @@ const messages = document.querySelector('.suggestions');
 const message = messages.querySelectorAll('.suggestion');
 
 // ============== TABS ==============
-window.onload = function() {
-    document.getElementById("userPostsButton").click();
-};
 function openPage(evt, pageName) {
     var i, tabcontent, tablinks;
 
@@ -57,3 +54,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
         timer: 2500
     });
 });
+
+window.onload = function (){
+    document.getElementById("userPostsButton").click();
+    fetch('/get-username')
+        .then(response => response.json())
+        .then(data => {
+            if (data.username) {
+                document.querySelector('#username').textContent = data.username;
+            }
+        })
+        .catch(error => console.error('Error:', error));
+};

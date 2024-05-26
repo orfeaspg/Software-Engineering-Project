@@ -263,13 +263,14 @@ body {
 
 #menu-bar .right .user-info {
     position: relative;
+    width: 90px;
 }
 
 #menu-bar .right .user-info .logout {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
     background-color: white;
     padding: 15px;
     color: black;
