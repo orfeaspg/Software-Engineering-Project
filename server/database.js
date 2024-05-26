@@ -70,6 +70,7 @@ app.get('/forum', (req, res) => {
     }else (res.redirect("/login"));
 });
 
+//forum articles query
 app.get('/forum-articles', (req, res) => {
     const query = "SELECT * FROM `articles` ORDER BY `id` ASC LIMIT 5;";
     connection.query(query, (err, results) => {
@@ -81,9 +82,9 @@ app.get('/forum-articles', (req, res) => {
         }
     });
 });
-
+//forum posts query
 app.get('/forum-posts', (req, res) => {
-    const query = "SELECT * FROM `posts` INNER JOIN `user` ON `posts`.`user_id` = `user`.`id` ORDER BY `posts`.`id` ASC LIMIT 5;";
+    const query = "SELECT * FROM `posts` INNER JOIN `user` ON `posts`.`user_id` = `user`.`id` ORDER BY `posts`.`id` DESC LIMIT 5;";
     connection.query(query, (err, results) => {
         if (err) {
             console.error(err);
@@ -137,6 +138,22 @@ app.get('/profile', (req, res) => {
         res.sendFile(path.join(__dirname, '../user_profile.html'));
     } else (res.redirect("/login"));
 });
+
+//profile posts query
+app.get('/profile-posts', (req, res) => {
+    const userId = req.session.user.id; // Assuming the user id is stored in req.session.user.id
+    const query = "SELECT * FROM `posts` INNER JOIN `user` ON `posts`.`user_id` = `user`.`id` WHERE `posts`.`user_id` = ?;";
+    connection.query(query, [userId], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server error');
+        } else {
+            console.log(results);
+            res.json(results);
+        }
+    });
+});
+
 
 app.get('/contact_us', (req, res) => {
     if (req.session.user) {
