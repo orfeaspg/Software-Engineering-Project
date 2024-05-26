@@ -50,3 +50,15 @@ document.getElementById('logoutButton').addEventListener('click', function() {
         })
         .catch(error => console.error('Error:', error));
 });
+
+//admin exclusive pages
+document.addEventListener('DOMContentLoaded', (event) => {
+    fetch('/get-role')
+        .then(response => response.json())
+        .then(data => {
+            if (data.role_id !== 2) {
+                document.querySelector('#adminLink').style.display = 'none';
+            }
+        })
+        .catch(error => console.error('Error:', error));
+});

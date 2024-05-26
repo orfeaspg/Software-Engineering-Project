@@ -61,7 +61,7 @@ app.post('/login', (req, res) => {
     });
 });
 
-//forum
+//pages
 app.get('/forum', (req, res) => {
     const query = "SELECT * FROM `articles` ORDER BY `id` ASC LIMIT 1;"; // Replace with your SQL query
     if (req.session.user) {
@@ -78,16 +78,14 @@ app.get('/forum', (req, res) => {
 
 });
 
-//pages
+
 app.get('/home', (req, res) => {
     if (req.session.user) {
-        res.sendFile(path.join(__dirname, '../FirstPage.html'));
-    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
-});
-
-app.get('/forum', (req, res) => {
-    console.log(req.session.user);
-
+        if (req.session.user.role_id === 2) {
+            res.sendFile(path.join(__dirname, '../admin.html'));
+        } else ( res.sendFile(path.join(__dirname, '../firstPage.html')));
+    }
+    else (res.sendFile(path.join(__dirname, '../loginForm.html')));
 });
 
 app.get('/chat', (req, res) => {
@@ -120,6 +118,12 @@ app.get('/contact_us', (req, res) => {
     } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
 });
 
+app.get('/admin', (req, res) => {
+    if (req.session.user && req.session.user.role_id === 2) {
+        res.sendFile(path.join(__dirname, '../admin.html'));
+    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+});
+
 //set username on the menu
 app.get('/get-username', (req, res) => {
     if (req.session.username) {
@@ -137,4 +141,13 @@ app.post('/logout', async (req, res) => {
         }
     })
     res.json({ status: 'success', redirectUrl: '/login' });
+});
+
+//admin exclusive pages
+app.get('/get-role', (req, res) => {
+    if (req.session.user) {
+        res.json({ role_id: req.session.user.role_id });
+    } else {
+        res.json({ role_id: null });
+    }
 });
