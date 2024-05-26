@@ -148,7 +148,6 @@ app.get('/profile-posts', (req, res) => {
             console.error(err);
             res.status(500).send('Server error');
         } else {
-            console.log(results);
             res.json(results);
         }
     });

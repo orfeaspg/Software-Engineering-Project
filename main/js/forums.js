@@ -60,7 +60,6 @@ window.onload = function (){
     fetch('/get-username')
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             if (data.username) {
                 document.querySelector('#username').textContent = "@"+data.username;
                 document.querySelector('#username-forum').textContent = "@"+data.username;
@@ -126,7 +125,6 @@ window.onload = function (){
         .then(data => {
             let externalLinks = document.querySelector('#posts-query');
             externalLinks.innerHTML = data.map(link => {
-                console.log(link);
                 return `<div class="feed">
                             <div class="head">
                                 <div class="user">
