@@ -108,7 +108,7 @@ window.onload = function (){
                             </div>
 
                             <div class="caption">
-                                <p><b>Indiana Ellison</b> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur itaque quasi autem pariatur ducimus eligendi, qui odio molestias at molestiae.
+                                <p><b>Indiana Ellison</b> ${link.description}</p>
                                     <span class="harsh-tag">#lifestyle</span></p>
                             </div>
 
