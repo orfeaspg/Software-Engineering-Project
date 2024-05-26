@@ -5,7 +5,9 @@ USE recovery_road;
 CREATE TABLE `articles` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
+  `website_name` text DEFAULT NULL,
   `description` text DEFAULT NULL,
+  `url` text DEFAULT NULL,
   `thumbnail_path` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
