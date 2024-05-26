@@ -52,9 +52,12 @@ app.post('/login', (req, res) => {
             console.error(err);
             res.json({ status: 'error', message: 'Something went wrong.' });
         } else if (results.length > 0) {
+            console.log(results);
             req.session.user = results[0];
             req.session.username = results[0].username;
-            res.json({ status: 'success', redirectUrl: '/home' });
+            if(results[0].role_id === 2){
+                res.json({ status: 'success', redirectUrl: '/admin' });
+            } else res.json({ status: 'success', redirectUrl: '/home' });
         } else {
             res.json({ status: 'error', message: 'Invalid username or password.' });
         }
@@ -81,9 +84,7 @@ app.get('/forum', (req, res) => {
 
 app.get('/home', (req, res) => {
     if (req.session.user) {
-        if (req.session.user.role_id === 2) {
-            res.sendFile(path.join(__dirname, '../admin.html'));
-        } else ( res.sendFile(path.join(__dirname, '../firstPage.html')));
+        res.sendFile(path.join(__dirname, '../firstPage.html'));
     }
     else (res.sendFile(path.join(__dirname, '../loginForm.html')));
 });
