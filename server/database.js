@@ -64,25 +64,63 @@ app.post('/login', (req, res) => {
 //forum
 app.get('/forum', (req, res) => {
     const query = "SELECT * FROM `articles` ORDER BY `id` ASC LIMIT 1;"; // Replace with your SQL query
+    if (req.session.user) {
+        connection.query(query, (err, results) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send('Server error');
+            } else {
+                console.log(results);
+                res.sendFile(path.join(__dirname, '../forums.html'));
+            }
+        });
+    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
 
-    connection.query(query, (err, results) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send('Server error');
-        } else {
-            console.log(results);
-            res.sendFile(path.join(__dirname, '../forums.html'));
-        }
-    });
 });
 
+//pages
 app.get('/home', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../FirstPage.html'));
     } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
 });
 
+app.get('/forum', (req, res) => {
+    console.log(req.session.user);
 
+});
+
+app.get('/chat', (req, res) => {
+    if (req.session.user) {
+        res.sendFile(path.join(__dirname, '../chat-room-selection.html'));
+    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+});
+
+app.get('/diary', (req, res) => {
+    if (req.session.user) {
+        res.sendFile(path.join(__dirname, '../personal-diary.html'));
+    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+});
+
+app.get('/streaks', (req, res) => {
+    if (req.session.user) {
+        res.sendFile(path.join(__dirname, '../streaks.html'));
+    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+});
+
+app.get('/profile', (req, res) => {
+    if (req.session.user) {
+        res.sendFile(path.join(__dirname, '../user_profile.html'));
+    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+});
+
+app.get('/contact_us', (req, res) => {
+    if (req.session.user) {
+        res.sendFile(path.join(__dirname, '../contactForm.html'));
+    } else (res.sendFile(path.join(__dirname, '../loginForm.html')));
+});
+
+//set username on the menu
 app.get('/get-username', (req, res) => {
     if (req.session.username) {
         res.json({ username: req.session.username });
