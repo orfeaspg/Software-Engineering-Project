@@ -98,7 +98,7 @@ CREATE TABLE `user` (
   `timestamps` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_roles` (`role_id`),
-  CONSTRAINT `fk_user_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_user_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 CREATE TABLE `streak_counter` (
