@@ -143,16 +143,16 @@ CREATE TABLE `personal_diary_content` (
 --
 
 INSERT INTO `personal_diary_content` (`id`, `user_id`, `title`, `content`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', '0000-00-00 00:00:00', NULL),
-(2, 2, 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', '0000-00-00 00:00:00', NULL),
-(3, 3, 'Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', 'Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', '0000-00-00 00:00:00', NULL),
-(4, 4, 'Nulla mollis molestie lorem.', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', '0000-00-00 00:00:00', NULL),
-(5, 5, 'Quisque ut erat.', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo.', '0000-00-00 00:00:00', NULL),
-(6, 6, 'Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.', '0000-00-00 00:00:00', NULL),
-(7, 7, 'Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.', 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', '0000-00-00 00:00:00', NULL),
-(8, 8, 'In congue.', 'Aenean sit amet justo.', '0000-00-00 00:00:00', NULL),
-(9, 9, 'Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.', 'Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', '0000-00-00 00:00:00', NULL),
-(10, 2, 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.', 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', '0000-00-00 00:00:00', NULL);
+(1, 1, 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', '2024-05-28 21:07:40', NULL),
+(2, 2, 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', '2024-05-28 21:07:40', NULL),
+(3, 3, 'Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', 'Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', '2024-05-28 21:07:40', NULL),
+(4, 4, 'Nulla mollis molestie lorem.', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', '2024-05-28 21:07:40', NULL),
+(5, 5, 'Quisque ut erat.', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo.', '2024-05-28 21:07:40', NULL),
+(6, 6, 'Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.', '2024-05-28 21:07:40', NULL),
+(7, 7, 'Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.', 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', '2024-05-28 21:07:40', NULL),
+(8, 8, 'In congue.', 'Aenean sit amet justo.', '2024-05-28 21:07:40', NULL),
+(9, 9, 'Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.', 'Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', '2024-05-28 21:07:40', NULL),
+(10, 2, 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.', 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', '2024-05-28 21:07:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -237,15 +237,15 @@ CREATE TABLE `streaks` (
 --
 
 INSERT INTO `streaks` (`id`, `name`, `user_id`, `start_date`, `end_date`) VALUES
-(1, 'Gleichner-Walter', 1, '0000-00-00 00:00:00', NULL),
-(2, 'Frami Inc', 2, '0000-00-00 00:00:00', NULL),
-(3, 'Quitzon Group', 3, '0000-00-00 00:00:00', NULL),
-(4, 'Cole LLC', 4, '0000-00-00 00:00:00', NULL),
-(5, 'Nader, McClure and Buckridge', 5, '0000-00-00 00:00:00', NULL),
-(6, 'Koss-Kling', 6, '0000-00-00 00:00:00', NULL),
-(7, 'Rempel-Will', 7, '0000-00-00 00:00:00', NULL),
-(8, 'Parisian, Rowe and Nolan', 8, '0000-00-00 00:00:00', NULL),
-(9, 'Hartmann-Goldner', 9, '0000-00-00 00:00:00', NULL);
+(1, 'Gleichner-Walter', 1, '2024-05-28 21:07:40', NULL),
+(2, 'Frami Inc', 2, '2024-05-28 21:07:40', NULL),
+(3, 'Quitzon Group', 3,'2024-05-28 21:07:40', NULL),
+(4, 'Cole LLC', 4, '2024-05-28 21:07:40', NULL),
+(5, 'Nader, McClure and Buckridge', 5, '2024-05-28 21:07:40', NULL),
+(6, 'Koss-Kling', 6, '2024-05-28 21:07:40', NULL),
+(7, 'Rempel-Will', 7, '2024-05-28 21:07:40', NULL),
+(8, 'Parisian, Rowe and Nolan', 8, '2024-05-28 21:07:40', NULL),
+(9, 'Hartmann-Goldner', 9, '2024-05-28 21:07:40', NULL);
 
 -- --------------------------------------------------------
 
