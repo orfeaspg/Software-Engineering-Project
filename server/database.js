@@ -63,6 +63,32 @@ app.post('/login', (req, res) => {
     });
 });
 
+
+//sign up
+app.post('/sign-up', async (req, res) => {
+    const { firstname, surname, username, email, password } = req.body;
+    let currentDateTime = new Date();
+    const query = "INSERT INTO user (username, name, surname, password, email, role_id, anonymous, timestamps) VALUES (?, ?, ?, ?, ?, 1, 0, ?)";
+    connection.query(query, [username, firstname, surname, password, email, currentDateTime], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.json({ status: 'error', message: 'Something went wrong.' });
+        } else {
+            res.json({ status: 'success', redirectUrl: '/login' , results: results});
+        }
+    })
+});
+
+//logout
+app.post('/logout', async (req, res) => {
+    req.session.destroy((err) => {
+        if(err) {
+            res.json({ status: 'error', message: 'Something went wrong.'});
+        }
+    })
+    res.json({ status: 'success', redirectUrl: '/login' });
+});
+
 //pages
 app.get('/forum', (req, res) => {
     if (req.session.user) {
@@ -175,15 +201,7 @@ app.get('/get-username', (req, res) => {
     }
 });
 
-//logout
-app.post('/logout', async (req, res) => {
-    req.session.destroy((err) => {
-        if(err) {
-            res.json({ status: 'error', message: 'Something went wrong.'});
-        }
-    })
-    res.json({ status: 'success', redirectUrl: '/login' });
-});
+
 
 //admin exclusive pages
 app.get('/get-role', (req, res) => {
@@ -193,3 +211,4 @@ app.get('/get-role', (req, res) => {
         res.json({ role_id: null });
     }
 });
+

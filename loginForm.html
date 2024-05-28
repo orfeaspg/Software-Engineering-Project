@@ -16,11 +16,11 @@
     <body>
         <section class="container forms">
             <!--Login Form-->
-            <div class="form login" id="loginForm">
+            <div class="form login">
                 <div class="form-content">
                     <img src="main/images/logo.png" alt="" class="header-image">
                     <header>Login</header>
-                    <form action="/login" method="post">
+                    <form action="/login" method="post" id="loginForm">
                         <div class="field input-field">
                             <label>
                                 <input type="text" placeholder="Username" class="input" name="username" required>
@@ -72,32 +72,33 @@
                 <div class="form-content">
                     <img src="main/images/logo.png" alt="" class="header-image">
                     <header>Sign Up</header>
-                    <form action="#">
+                    <form action="/sign-up" method="post">
                         <div class="field input-field">
-                            <input type="text" placeholder="Name" class="input">
+                            <input type="text" placeholder="Name" class="input" name="firstname">
                         </div>
 
                         <div class="field input-field">
-                            <input type="text" placeholder="Surname" class="input">
+                            <input type="text" placeholder="Surname" class="input" name="surname">
                         </div>
 
                         <div class="field input-field">
-                            <input type="text" placeholder="Username" class="input">
+                            <input type="text" placeholder="Username" class="input" name="username">
                         </div>
 
                         <div class="field input-field">
-                            <input type="email" placeholder="Email" class="input">
+                            <input type="email" placeholder="Email" class="input" name="email">
                         </div>
 
                         <div class="field input-field">
-                            <input type="password" placeholder="Create password" class="password">
+                            <input type="password" placeholder="Create password" class="password" name="password">
                         </div>
 
                         <div class="field button-field">
-                            <button>Sign up</button>
+                            <button type="submit" value="Signup">Sign up</button>
                         </div>
                     </form>
 
+                    <div id="message"></div>
                     <div class="form-link">
                         <span>Already registered? <a href="#" class="link login-link">Log in</a></span>
                     </div>
@@ -122,7 +123,6 @@
             </div>
         </section>
 
-        <!-- JavaScript -->
         <script src="main/js/script.js"></script>
     </body>
 </html>

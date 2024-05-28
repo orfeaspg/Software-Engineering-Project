@@ -31,7 +31,6 @@ links.forEach(link => {
 document.getElementById('loginForm')?.addEventListener('submit', function(event) {
     event.preventDefault();
     let formData = new URLSearchParams(new FormData(event.target)).toString();
-    console.log(formData);
     fetch('/login', {
         method: 'POST',
         headers: {
@@ -41,7 +40,6 @@ document.getElementById('loginForm')?.addEventListener('submit', function(event)
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             let messageElement = document.getElementById('message');
             if (data.status === 'success') {
                 window.location.href = data.redirectUrl;
@@ -53,6 +51,31 @@ document.getElementById('loginForm')?.addEventListener('submit', function(event)
         .catch(error => console.error('Error:', error));
 });
 
+//signup
+document.getElementById('Signup')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    let formData = new URLSearchParams(new FormData(event.target)).toString();
+    fetch('/sign-up', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            let messageElement = document.getElementById('message');
+            if (data.status === 'success') {
+                window.location.href = data.redirectUrl;
+            } else {
+                messageElement.style.color = 'red';
+                messageElement.textContent = data.message;
+            }
+        })
+        .catch(error => console.error('Error:', error));
+});
+
+//get username
 window.onload = function (){
     fetch('/get-username')
         .then(response => response.json())
@@ -94,6 +117,8 @@ fetch('/logout', {
     })
     .catch(error => console.error('Error:', error));
 });
+
+
 
 //admin exclusive pages
 document.addEventListener('DOMContentLoaded', (event) => {
