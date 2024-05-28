@@ -20,6 +20,14 @@ CREATE TABLE `posts` (
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
+CREATE TABLE `websites` (
+`id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+`name` text NOT NULL,
+`description` text DEFAULT NULL,
+`thumbnail_path` text DEFAULT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
 CREATE TABLE `chat_rooms` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
@@ -61,10 +69,14 @@ CREATE TABLE `contact_forms` (
 
 CREATE TABLE `personal_diary_content` (
   `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
   `title` text NOT NULL,
   `content` text DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_user_diary_user` (`user_id`),
+  CONSTRAINT `fk_user_diary_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 CREATE TABLE `roles` (
@@ -100,28 +112,17 @@ CREATE TABLE `user` (
   CONSTRAINT `fk_user_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
-CREATE TABLE `streak_counter` (
+CREATE TABLE `streaks` (
   `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
   `user_id` bigint NOT NULL,
   `start_date` datetime NOT NULL,
-  `end_date` datetime NOT NULL,
+  `end_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_streak_counter_user` (`user_id`),
   CONSTRAINT `fk_streak_counter_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
-CREATE TABLE `users_diary_contents` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `user_id` bigint NOT NULL,
-  `personal_diary_id` bigint NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_user_diary_user` (`user_id`),
-  KEY `fk_user_diary_personal` (`personal_diary_id`),
-  CONSTRAINT `fk_user_diary_personal` FOREIGN KEY (`personal_diary_id`) REFERENCES `personal_diary_content` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_user_diary_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 CREATE TABLE `user_chat_rooms` (
   `id` bigint NOT NULL AUTO_INCREMENT,
@@ -167,8 +168,6 @@ INSERT INTO user (id, username, name, surname, password, email, role_id,  timest
 (9, 'mary', 'Maria', 'Menounou', 'password1', 'mary@example.com', 5, NOW());
 
 
-
-
 INSERT INTO external_links (id, title, description, url, thumbnail_path) VALUES
 (1, 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices.', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.', 'https://mapy.cz/eros/elementum/pellentesque/quisque.html?congue=aliquam&eget=lacus&semper=morbi&rutrum=quis&nulla=tortor&nunc=id&purus=nulla&phasellus=ultrices&in=aliquet&felis=maecenas&donec=leo&semper=odio&sapien=condimentum&a=id&libero=luctus&nam=nec&dui=molestie&proin=sed&leo=justo&odio=pellentesque&porttitor=viverra&id=pede&consequat=ac&in=diam&consequat=cras&ut=pellentesque&nulla=volutpat&sed=dui&accumsan=maecenas&felis=tristique&ut=est&at=et&dolor=tempus&quis=semper&odio=est&consequat=quam&varius=pharetra&integer=magna&ac=ac&leo=consequat&pellentesque=metus&ultrices=sapien&mattis=ut&odio=nunc&donec=vestibulum&vitae=ante&nisi=ipsum&nam=primis&ultrices=in&libero=faucibus&non=orci&mattis=luctus&pulvinar=et&nulla=ultrices&pede=posuere&ullamcorper=cubilia&augue=curae&a=mauris&suscipit=viverra&nulla=diam&elit=vitae&ac=quam&nulla=suspendisse&sed=potenti&vel=nullam&enim=porttitor&sit=lacus&amet=at&nunc=turpis&viverra=donec&dapibus=posuere&nulla=metus&suscipit=vitae&ligula=ipsum&in=aliquam&lacus=non&curabitur=mauris&at=morbi&ipsum=non&ac=lectus&tellus=aliquam&semper=sit&interdum=amet&mauris=diam&ullamcorper=in&purus=magna&sit=bibendum&amet=imperdiet&nulla=nullam&quisque=orci&arcu=pede&libero=venenatis','/main/images/article1.jpg'),
 (2, 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.', 'Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', 'http://arstechnica.com/accumsan/felis.jsp?justo=ipsum&in=dolor&blandit=sit&ultrices=amet&enim=consectetuer&lorem=adipiscing&ipsum=elit&dolor=proin&sit=interdum&amet=mauris&consectetuer=non&adipiscing=ligula&elit=pellentesque&proin=ultrices&interdum=phasellus&mauris=id&non=sapien&ligula=in&pellentesque=sapien&ultrices=iaculis&phasellus=congue&id=vivamus&sapien=metus&in=arcu&sapien=adipiscing&iaculis=molestie&congue=hendrerit&vivamus=at&metus=vulputate&arcu=vitae&adipiscing=nisl&molestie=aenean&hendrerit=lectus&at=pellentesque&vulputate=eget&vitae=nunc&nisl=donec&aenean=quis&lectus=orci&pellentesque=eget&eget=orci&nunc=vehicula&donec=condimentum&quis=curabitur&orci=in&eget=libero&orci=ut&vehicula=massa&condimentum=volutpat&curabitur=convallis', '/main/images/article2.jpg'),
@@ -205,3 +204,53 @@ INSERT INTO posts (id, user_id, description, thumbnail_path) VALUES
 (8, 8, 'Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', '/main/images/feed-7.jpg'),
 (9, 9,'Cras in purus eu magna vulputate luctus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', '/main/images/feed-6.jpg'),
 (10, 1,'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', '/main/images/feed-5.jpg');
+
+
+INSERT INTO websites (id, name, description, thumbnail_path) VALUES
+(1, 'Voyatouch', 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper.  ', null),
+(2, 'Fixflex', 'Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. ', null),
+(3, 'Lotstring', 'Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.', null),
+(4, 'Voltsillam', 'Donec posuere metus vitae ipsum.  ', null),
+(5, 'Greenlam', 'Vivamus vestibulum sagittis sapien.', null),
+(6, 'Alpha', 'Integer ac neque. Duis bibendum.', null),
+(7, 'Konklab', 'Donec vitae nisi. nc viverra dapibus.', null),
+(8, 'Cardify', 'Suspendisse potenti.', null),
+(9, 'Biodex', 'Integer ac leo.', null),
+(10, 'Lotlux', 'Morbi porttitor lorem id ligula.', null);
+
+INSERT INTO streaks (id, name, user_id, start_date, end_date) VALUES
+(1, 'Gleichner-Walter', 1, '7/9/2024', null),
+(2, 'Frami Inc', 2, '7/21/2024', null),
+(3, 'Quitzon Group', 3, '8/5/2024', null),
+(4, 'Cole LLC', 4, '7/15/2024', null),
+(5, 'Nader, McClure and Buckridge', 5, '9/10/2024', null),
+(6, 'Koss-Kling', 6, '6/14/2024', null),
+(7, 'Rempel-Will', 7, '7/28/2024', null),
+(8, 'Parisian, Rowe and Nolan', 8, '7/4/2024', null),
+(9, 'Hartmann-Goldner', 9, '5/30/2024', null),
+(10, 'Herzog LLC', 10, '7/3/2024', null);
+
+INSERT INTO personal_diary_content (id, user_id, title, content, created_at, updated_at) VALUES
+(1, 1, 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', '6/20/2024', null),
+(2, 2, 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', '7/20/2024', null),
+(3, 3, 'Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', 'Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', '9/9/2024', null),
+(4, 4, 'Nulla mollis molestie lorem.', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', '8/5/2024', null),
+(5, 5, 'Quisque ut erat.', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo.', '8/13/2024', null),
+(6, 6, 'Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.', '8/31/2024', null),
+(7, 7, 'Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.', 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', '5/28/2024', null),
+(8, 8, 'In congue.', 'Aenean sit amet justo.', '6/20/2024', null),
+(9, 9, 'Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.', 'Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', '6/19/2024', null),
+(10, 2, 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.', 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', '7/1/2024', null);
+
+
+INSERT INTO chat_rooms (id, title, description) VALUES
+(1, 'Bad Day on the Block', 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.'),
+(2, 'Fantastic Flesh: The Art of Make-Up EFX', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna.'),
+(3, 'Flock, The', 'Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.'),
+(4, 'På sista versen', 'Nulla mollis molestie lorem.'),
+(5, 'Diary of a Wimpy Kid: Rodrick Rules', 'Phasellus in felis. Donec semper sapien a libero.'),
+(6, 'Absolon', 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.'),
+(7, 'Hard Ticket to Hawaii', 'Proin interdum mauris non ligula pellentesque ultrices.'),
+(8, 'Crocodile', 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.'),
+(9, 'Kiss, The', 'Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.'),
+(10, 'Piranha', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.');
