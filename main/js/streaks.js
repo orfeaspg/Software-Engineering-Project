@@ -59,6 +59,7 @@ window.onload = function (){
         .then(data => {
             if (data.username) {
                 document.querySelector('#username').textContent = "@"+data.username;
+                document.querySelectorAll('.profile-photo').forEach(element => element.setAttribute('src', data.profile_picture));
             }
         })
         .catch(error => console.error('Error:', error));

@@ -29,6 +29,7 @@ window.onload = function () {
         .then(data => {
             if (data.username) {
                 document.querySelector('#username').textContent = "@" + data.username;
+                document.querySelectorAll('.profile-photo').forEach(element => element.setAttribute('src', data.profile_picture));
                 if (document.querySelector('#name-surname-profile' && '#username-profile')) {
                     document.querySelector('#username-profile').textContent = "@" + data.username;
                     document.querySelector('#name-surname-profile').textContent = data.name + " " + data.surname;

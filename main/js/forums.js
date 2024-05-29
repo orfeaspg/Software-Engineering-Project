@@ -64,7 +64,7 @@ window.onload = function (){
                 document.querySelector('#username').textContent = "@"+data.username;
                 document.querySelector('#username-forum').textContent = "@"+data.username;
                 document.querySelector('#name-surname-forum').textContent = data.name+" "+data.surname;
-                document.querySelector('#profile-photo').setAttribute('src', data.profile_picture);
+                document.querySelectorAll('.profile-photo').forEach(element => element.setAttribute('src', data.profile_picture));
             }
         })
         .catch(error => console.error('Error:', error));
