@@ -64,6 +64,7 @@ window.onload = function (){
                 document.querySelector('#username').textContent = "@"+data.username;
                 document.querySelector('#username-forum').textContent = "@"+data.username;
                 document.querySelector('#name-surname-forum').textContent = data.name+" "+data.surname;
+                document.querySelector('#profile-photo').setAttribute('src', data.profile_picture);
             }
         })
         .catch(error => console.error('Error:', error));
@@ -71,8 +72,8 @@ window.onload = function (){
     fetch('/forum-articles')
         .then(response => response.json())
         .then(data => {
-            let externalLinks = document.querySelector('#articles-query');
-            externalLinks.innerHTML = data.map(link => {
+            let forumArticles = document.querySelector('#articles-query');
+            forumArticles.innerHTML = data.map(link => {
                 return `<div class="feed" id="single-article">
                             <div class="head">
                                 <div class="user">
@@ -123,13 +124,13 @@ window.onload = function (){
     fetch('/forum-posts')
         .then(response => response.json())
         .then(data => {
-            let externalLinks = document.querySelector('#posts-query');
-            externalLinks.innerHTML = data.map(link => {
+            let forumPosts = document.querySelector('#posts-query');
+            forumPosts.innerHTML = data.map(link => {
                 return `<div class="feed">
                             <div class="head">
                                 <div class="user">
                                     <div class="profile-photo">
-                                        <img src="./main/images/profile-13.jpg">
+                                        <img src="${link.profile_picture}">
                                     </div>
                                     <div class="info">
                                         <h3>${link.name+" "+link.surname}</h3>
@@ -172,6 +173,39 @@ window.onload = function (){
                                 View all 277 comments
                             </div>
                         </div>`
+            }).join('');
+        })
+        .catch(error => console.error('Error:', error));
+    fetch('/forum-websites')
+        .then(response => response.json())
+        .then(data => {
+            let forumWebsites = document.querySelector('#forum-websites');
+            forumWebsites.innerHTML = data.map(link => {
+                return `<div class="suggestion">
+                        <div class="profile-photo">
+                            <img src="${link.thumbnail_path}">
+                        </div>
+                        <div class="suggestion-body">
+                            <h5>${link.name}</h5>
+                            <p class="text-muted">${link.description}</p>
+                        </div>
+                    </div>`
+            }).join('');
+        })
+        .catch(error => console.error('Error:', error));
+    fetch('/forum-users')
+        .then(response => response.json())
+        .then(data => {
+            let forumUsers = document.querySelector('#forum-users');
+            forumUsers.innerHTML = data.map(link => {
+                return `<div class="suggestion">
+                        <div class="profile-photo">
+                            <img src="${link.profile_picture}">
+                        </div>
+                        <div class="suggestion-body">
+                            <h5>${link.name} ${link.surname}</h5>
+                        </div>
+                    </div>`
             }).join('');
         })
         .catch(error => console.error('Error:', error));

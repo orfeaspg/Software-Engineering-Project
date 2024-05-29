@@ -137,6 +137,32 @@ app.get('/forum-posts', (req, res) => {
     });
 });
 
+//forum websites query
+app.get('/forum-websites', (req, res) => {
+    const query = "SELECT * FROM `websites` ORDER BY `websites`.`id` DESC LIMIT 8;";
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server error');
+        } else {
+            res.json(results);
+        }
+    });
+});
+
+//forum users query
+app.get('/forum-users', (req, res) => {
+    const query = "SELECT * FROM `user` ORDER BY `user`.`id` ASC LIMIT 6;";
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server error');
+        } else {
+            res.json(results);
+        }
+    });
+});
+
 app.get('/home', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../FirstPage.html'));
@@ -169,6 +195,7 @@ app.get('/chat-rooms', (req, res) => {
         }
     });
 });
+
 
 //pages
 app.get('/chat', (req, res) => {
@@ -225,13 +252,11 @@ app.get('/admin', (req, res) => {
 //set username on the menu
 app.get('/get-username', (req, res) => {
     if (req.session.username) {
-        res.json({ username: req.session.username, name: req.session.user.name, surname: req.session.user.surname });
+        res.json({ username: req.session.username, name: req.session.user.name, surname: req.session.user.surname, profile_picture: req.session.user.profile_picture});
     } else {
         res.json({ username: null });
     }
 });
-
-
 
 //admin exclusive pages
 app.get('/get-role', (req, res) => {

@@ -262,23 +262,24 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL,
   `anonymous` tinyint(1) NOT NULL DEFAULT 0,
-  `timestamps` datetime DEFAULT NULL
+  `timestamps` datetime DEFAULT NULL,
+  `profile_picture` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Άδειασμα δεδομένων του πίνακα `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `name`, `surname`, `password`, `email`, `role_id`, `anonymous`, `timestamps`) VALUES
-(1, 'akis', 'Akis', 'Papapanagiotou', 'akis1', 'akis@example.com', 2, 0, '2024-05-28 21:07:40'),
-(2, 'elena', 'Elena', 'Thanopoulou', 'elena1', 'elena@example.com', 2, 0, '2024-05-28 21:07:40'),
-(3, 'iro', 'Iro', 'Kamarinou', 'iro1', 'iro@example.com', 2, 0, '2024-05-28 21:07:40'),
-(4, 'orfeas', 'Orfeas', 'Pourdourides', 'orfeas1', 'orfeas@example.com', 2, 0, '2024-05-28 21:07:40'),
-(5, 'thomas', 'Thomas', 'Nikolaou', 'thomas1', 'thomas@example.com', 2, 0, '2024-05-28 21:07:40'),
-(6, 'chris', 'Chris', 'Papas', 'password1', 'chris@example.com', 1, 0, '2024-05-28 21:07:40'),
-(7, 'sia', 'Sia', 'Panou', 'password1', 'sia@example.com', 3, 0, '2024-05-28 21:07:40'),
-(8, 'bob', 'Bob', 'Seen', 'password1', 'bob@example.com', 4, 0, '2024-05-28 21:07:40'),
-(9, 'mary', 'Maria', 'Menounou', 'password1', 'mary@example.com', 5, 0, '2024-05-28 21:07:40');
+INSERT INTO `user` (`id`, `username`, `name`, `surname`, `password`, `email`, `role_id`, `anonymous`, `timestamps`, `profile_picture`) VALUES
+(1, 'akis', 'Akis', 'Papapanagiotou', 'akis1', 'akis@example.com', 2, 0, '2024-05-28 21:07:40', '/main/images/profile-11.jpg'),
+(2, 'elena', 'Elena', 'Thanopoulou', 'elena1', 'elena@example.com', 2, 0, '2024-05-28 21:07:40', '/main/images/profile-12.jpg'),
+(3, 'iro', 'Iro', 'Kamarinou', 'iro1', 'iro@example.com', 2, 0, '2024-05-28 21:07:40', '/main/images/profile-13.jpg'),
+(4, 'orfeas', 'Orfeas', 'Pourdourides', 'orfeas1', 'orfeas@example.com', 2, 0, '2024-05-28 21:07:40', '/main/images/profile-15.jpg'),
+(5, 'thomas', 'Thomas', 'Nikolaou', 'thomas1', 'thomas@example.com', 2, 0, '2024-05-28 21:07:40', '/main/images/profile-16.jpg'),
+(6, 'chris', 'Chris', 'Papas', 'password1', 'chris@example.com', 1, 0, '2024-05-28 21:07:40', '/main/images/profile-17.jpg'),
+(7, 'sia', 'Sia', 'Panou', 'password1', 'sia@example.com', 3, 0, '2024-05-28 21:07:40', '/main/images/profile-18.jpg'),
+(8, 'bob', 'Bob', 'Seen', 'password1', 'bob@example.com', 4, 0, '2024-05-28 21:07:40', '/main/images/profile-19.jpg'),
+(9, 'mary', 'Maria', 'Menounou', 'password1', 'mary@example.com', 5, 0, '2024-05-28 21:07:40', '/main/images/profile-20.jpg');
 
 -- --------------------------------------------------------
 
@@ -324,16 +325,16 @@ CREATE TABLE `websites` (
 --
 
 INSERT INTO `websites` (`id`, `name`, `description`, `thumbnail_path`) VALUES
-(1, 'Voyatouch', 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper.  ', NULL),
-(2, 'Fixflex', 'Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. ', NULL),
-(3, 'Lotstring', 'Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.', NULL),
-(4, 'Voltsillam', 'Donec posuere metus vitae ipsum.  ', NULL),
-(5, 'Greenlam', 'Vivamus vestibulum sagittis sapien.', NULL),
-(6, 'Alpha', 'Integer ac neque. Duis bibendum.', NULL),
-(7, 'Konklab', 'Donec vitae nisi. nc viverra dapibus.', NULL),
-(8, 'Cardify', 'Suspendisse potenti.', NULL),
-(9, 'Biodex', 'Integer ac leo.', NULL),
-(10, 'Lotlux', 'Morbi porttitor lorem id ligula.', NULL);
+(1, 'Voyatouch', 'Cras pellentesque volutpat dui. ', '/main/images/profile-11.jpg'),
+(2, 'Fixflex', 'Donec posuere metus vitae ipsum.', '/main/images/profile-2.jpg'),
+(3, 'Lotstring', 'Quisque ut erat. Curabitur gravida nisi.', '/main/images/profile-3.jpg'),
+(4, 'Voltsillam', 'Donec posuere metus vitae ipsum.  ', '/main/images/profile-4.jpg'),
+(5, 'Greenlam', 'Vivamus vestibulum sagittis sapien.', '/main/images/profile-5.jpg'),
+(6, 'Alpha', 'Integer ac neque. Duis bibendum.', '/main/images/profile-6.jpg'),
+(7, 'Konklab', 'Donec vitae nisi. nc viverra dapibus.', '/main/images/profile-7.jpg'),
+(8, 'Cardify', 'Suspendisse potenti.', '/main/images/profile-8.jpg'),
+(9, 'Biodex', 'Integer ac leo.', '/main/images/profile-9.jpg'),
+(10, 'Lotlux', 'Morbi porttitor lorem id ligula.', '/main/images/profile-10.jpg');
 
 --
 -- Ευρετήρια για άχρηστους πίνακες
