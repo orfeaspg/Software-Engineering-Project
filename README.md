@@ -42,12 +42,12 @@
 από τον εθισμό.
 
 ### Πως να τρέξετε τον κώδικα:
-1) Δημιουργήστε ένα .env file στον φάκελο "server" και συμπληρώστε τα παρακάτω
-    DB_HOST = localhost
-    DB_USER = root
-    DB_PASSWORD = 1234
-    DB_NAME = recovery_road
-Αν τρέχετε τον mysql server σας με άλλα credentials, τροποποιήστε ανάλογα το file
+1) Δημιουργήστε ένα .env file στον φάκελο "server" και συμπληρώστε τα παρακάτω:  
+    DB_HOST = localhost  
+    DB_USER = root  
+    DB_PASSWORD = 1234  
+    DB_NAME = recovery_road  
+Αν τρέχετε τον mysql server σας με άλλα credentials, τροποποιήστε ανάλογα το file 
 2) Τρέξτε το αρχείο database_scripts/database.sql στον mysql server σας
 3) Τρέξτε το αρχείο server/server.js
 3) Πηγαίνετε στο localhost:3000/login και κάντε login με ένα άπο τα credentials που είναι στον πίνακα "user" της βάσης ή κάντε sign up και login με τα δικά σας.
