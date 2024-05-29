@@ -79,6 +79,21 @@ app.post('/sign-up', async (req, res) => {
     })
 });
 
+//contact form
+app.post('/contact-us', async (req, res) => {
+    const { username, description } = req.body;
+    let currentDateTime = new Date();
+    const query = "INSERT INTO contact_forms (username, description) VALUES (?, ?)";
+    connection.query(query, [username, description], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.json({ status: 'error', message: 'Something went wrong.' });
+        } else {
+            res.json({ status: 'success', redirectUrl: '/login' , results: results});
+        }
+    })
+});
+
 //logout
 app.post('/logout', async (req, res) => {
     req.session.destroy((err) => {
@@ -108,6 +123,7 @@ app.get('/forum-articles', (req, res) => {
         }
     });
 });
+
 //forum posts query
 app.get('/forum-posts', (req, res) => {
     const query = "SELECT * FROM `posts` INNER JOIN `user` ON `posts`.`user_id` = `user`.`id` ORDER BY `posts`.`id` DESC LIMIT 5;";

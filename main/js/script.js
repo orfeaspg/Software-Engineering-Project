@@ -40,7 +40,7 @@ document.getElementById('loginForm')?.addEventListener('submit', function(event)
     })
         .then(response => response.json())
         .then(data => {
-            let messageElement = document.getElementById('message');
+            let messageElement = document.getElementById('login-message');
             if (data.status === 'success') {
                 window.location.href = data.redirectUrl;
             } else {
@@ -56,6 +56,30 @@ document.getElementById('Signup')?.addEventListener('submit', function(event) {
     event.preventDefault();
     let formData = new URLSearchParams(new FormData(event.target)).toString();
     fetch('/sign-up', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            let messageElement = document.getElementById('sign-up-message');
+            if (data.status === 'success') {
+                window.location.href = data.redirectUrl;
+            } else {
+                messageElement.style.color = 'red';
+                messageElement.textContent = data.message;
+            }
+        })
+        .catch(error => console.error('Error:', error));
+});
+
+//contact form
+document.getElementById('contactForm')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    let formData = new URLSearchParams(new FormData(event.target)).toString();
+    fetch('/contact-us', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -117,7 +141,6 @@ fetch('/logout', {
     })
     .catch(error => console.error('Error:', error));
 });
-
 
 
 //admin exclusive pages
