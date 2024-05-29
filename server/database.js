@@ -104,7 +104,7 @@ app.post('/logout', async (req, res) => {
     res.json({ status: 'success', redirectUrl: '/login' });
 });
 
-//pages
+//forum
 app.get('/forum', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../forums.html'));
@@ -157,6 +157,20 @@ app.get('/external-links', (req, res) => {
     });
 });
 
+//chat rooms
+app.get('/chat-rooms', (req, res) => {
+    const query = "SELECT * FROM `chat_rooms` ORDER BY `id` ASC LIMIT 6;";
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server error');
+        } else {
+            res.json(results);
+        }
+    });
+});
+
+//pages
 app.get('/chat', (req, res) => {
     if (req.session.user) {
         res.sendFile(path.join(__dirname, '../chat-room-selection.html'));

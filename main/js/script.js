@@ -100,20 +100,19 @@ document.getElementById('contactForm')?.addEventListener('submit', function(even
 });
 
 //get username
-window.onload = function (){
+window.onload = function () {
     fetch('/get-username')
         .then(response => response.json())
         .then(data => {
             if (data.username) {
-                document.querySelector('#username').textContent = "@"+data.username;
+                document.querySelector('#username').textContent = "@" + data.username;
             }
         })
         .catch(error => console.error('Error:', error));
-    if(document.querySelector('#externalLinks')){
+    if (document.querySelector('#externalLinks')) {
         fetch('/external-links')
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 let externalLinks = document.querySelector('#externalLinks');
                 externalLinks.innerHTML = data.map(link => {
                     return `<div class="article">
@@ -126,20 +125,35 @@ window.onload = function (){
             })
             .catch(error => console.error('Error:', error));
     }
+    if (document.querySelector('#chatRoom')) {
+        fetch('/chat-rooms')
+            .then(response => response.json())
+            .then(data => {
+                let chatRooms = document.querySelector('#chatRoom');
+                chatRooms.innerHTML = data.map(link => {
+                    return `<div class="chat-room">
+            <h2 class="chat-room__title">${link.title}</h2>
+            <p class="chat-room__description">${link.description}</p>
+            <a href="#" class="chat-room__join-btn" onclick="showModal(${link.title})">Join</a>
+        </div>`
+                }).join('');
+            })
+            .catch(error => console.error('Error:', error));
+    }
 };
 
 //logout
-document.getElementById('logoutButton')?.addEventListener('click', function() {
-fetch('/logout', {
-    method: 'POST'
-})
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            window.location.href = data.redirectUrl;
-        }
+document.getElementById('logoutButton')?.addEventListener('click', function () {
+    fetch('/logout', {
+        method: 'POST'
     })
-    .catch(error => console.error('Error:', error));
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                window.location.href = data.redirectUrl;
+            }
+        })
+        .catch(error => console.error('Error:', error));
 });
 
 

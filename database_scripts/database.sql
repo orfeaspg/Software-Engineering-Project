@@ -44,16 +44,16 @@ CREATE TABLE `chat_rooms` (
 --
 
 INSERT INTO `chat_rooms` (`id`, `title`, `description`) VALUES
-(1, 'Bad Day on the Block', 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.'),
+(1, 'Bad Day on the Block', 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.'),
 (2, 'Fantastic Flesh: The Art of Make-Up EFX', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna.'),
 (3, 'Flock, The', 'Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.'),
 (4, 'På sista versen', 'Nulla mollis molestie lorem.'),
 (5, 'Diary of a Wimpy Kid: Rodrick Rules', 'Phasellus in felis. Donec semper sapien a libero.'),
-(6, 'Absolon', 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.'),
+(6, 'Absolon', 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo.'),
 (7, 'Hard Ticket to Hawaii', 'Proin interdum mauris non ligula pellentesque ultrices.'),
 (8, 'Crocodile', 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.'),
 (9, 'Kiss, The', 'Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.'),
-(10, 'Piranha', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.');
+(10, 'Piranha', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
 
 -- --------------------------------------------------------
 
