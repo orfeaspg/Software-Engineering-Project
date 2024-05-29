@@ -224,7 +224,7 @@ app.get('/profile', (req, res) => {
 
 //profile posts query
 app.get('/profile-posts', (req, res) => {
-    const userId = req.session.user.id; // Assuming the user id is stored in req.session.user.id
+    const userId = req.session.user.id;
     const query = "SELECT * FROM `posts` INNER JOIN `user` ON `posts`.`user_id` = `user`.`id` WHERE `posts`.`user_id` = ?;";
     connection.query(query, [userId], (err, results) => {
         if (err) {
@@ -236,6 +236,19 @@ app.get('/profile-posts', (req, res) => {
     });
 });
 
+//diary content query
+app.get('/diary-content', (req, res) => {
+    const userId = req.session.user.id;
+    const query = "SELECT * FROM `personal_diary_content` INNER JOIN `user` ON `personal_diary_content`.`user_id` = `user`.`id` WHERE `personal_diary_content`.`user_id` = ?;";
+    connection.query(query, [userId], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server error');
+        } else {
+            res.json(results);
+        }
+    });
+});
 
 app.get('/contact_us', (req, res) => {
     if (req.session.user) {

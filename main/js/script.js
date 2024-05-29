@@ -140,6 +140,17 @@ window.onload = function () {
             })
             .catch(error => console.error('Error:', error));
     }
+    if (document.querySelector('#diaryEntry')) {
+        fetch('/diary-content')
+            .then(response => response.json())
+            .then(data => {
+                let diaryEntry = document.querySelector('#diaryEntry');
+                diaryEntry.innerHTML = data.map(link => {
+                    return `<li><a href="#">${link.title}</a></li>`
+                }).join('');
+            })
+            .catch(error => console.error('Error:', error));
+    }
 };
 
 //logout
