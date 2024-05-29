@@ -135,7 +135,7 @@ window.onload = function () {
                     return `<div class="chat-room">
             <h2 class="chat-room__title">${link.title}</h2>
             <p class="chat-room__description">${link.description}</p>
-            <a href="#" class="chat-room__join-btn" onclick="showModal(${link.title})">Join</a>
+            <a href="#" class="chat-room__join-btn" onclick="showModal('${link.title}')">Join</a>
         </div>`
                 }).join('');
             })
