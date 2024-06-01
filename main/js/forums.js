@@ -165,8 +165,7 @@ window.onload = function (){
                             </div>
 
                             <div class="caption">
-                                <p><b>Lana Rose</b> Lorem ipsum dolor sit quisquam eius.
-                                <span class="harsh-tag">#lifestyle</span></p>
+                                <p><b>${link.name+" "+link.surname}</b> ${link.description}
                             </div>
 
                             <div class="comments text-muted">
