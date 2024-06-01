@@ -26,7 +26,6 @@ links.forEach(link => {
     })
 })
 
-
 //login
 document.getElementById('loginForm')?.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -141,16 +140,23 @@ window.onload = function () {
             })
             .catch(error => console.error('Error:', error));
     }
-    if (document.querySelector('#diaryEntry')) {
+    // Fetch recent entries only if the element exists
+    if (document.querySelector('#recent-entries-list')) {
         fetch('/diary-content')
             .then(response => response.json())
-            .then(data => {
-                let diaryEntry = document.querySelector('#diaryEntry');
-                diaryEntry.innerHTML = data.map(link => {
-                    return `<li><a href="#">${link.title}</a></li>`
-                }).join('');
+            .then(entries => {
+                const recentEntriesList = document.getElementById('recent-entries-list');
+                recentEntriesList.innerHTML = '';
+                entries.forEach(entry => {
+                    const listItem = document.createElement('li');
+                    const entryLink = document.createElement('a');
+                    entryLink.href = `/diary-entry.html?id=${entry.id}`;
+                    entryLink.textContent = entry.title;
+                    listItem.appendChild(entryLink);
+                    recentEntriesList.appendChild(listItem);
+                });
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => console.error('Error fetching recent entries:', error));
     }
 };
 

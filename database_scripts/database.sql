@@ -237,10 +237,10 @@ CREATE TABLE `streaks` (
 --
 
 INSERT INTO `streaks` (`id`, `name`, `user_id`, `start_date`, `end_date`) VALUES
-(1, 'Gleichner-Walter', 1, '2024-05-28 21:07:40', NULL),
-(2, 'Frami Inc', 2, '2024-05-28 21:07:40', NULL),
-(3, 'Quitzon Group', 3,'2024-05-28 21:07:40', NULL),
-(4, 'Cole LLC', 4, '2024-05-28 21:07:40', NULL),
+(1, 'Gleichner-Walter', 1, '2024-03-22 21:07:40', NULL),
+(2, 'Frami Inc', 2, '2024-02-21 21:07:40', NULL),
+(3, 'Quitzon Group', 3,'2024-01-10 21:07:40', NULL),
+(4, 'Cole LLC', 4, '2024-03-24 21:07:40', NULL),
 (5, 'Nader, McClure and Buckridge', 5, '2024-05-28 21:07:40', NULL),
 (6, 'Koss-Kling', 6, '2024-05-28 21:07:40', NULL),
 (7, 'Rempel-Will', 7, '2024-05-28 21:07:40', NULL),
@@ -576,18 +576,3 @@ ALTER TABLE `user_messages`
   ADD CONSTRAINT `fk_user_messages_messages` FOREIGN KEY (`message_id`) REFERENCES `messages` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_user_messages_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON UPDATE CASCADE;
 COMMIT;
-
-SET @OLD_CHARACTER_SET_CLIENT = @@character_set_client;
-SET @OLD_CHARACTER_SET_RESULTS = @@character_set_results;
-SET @OLD_COLLATION_CONNECTION = @@collation_connection;
-
-
-IF @OLD_CHARACTER_SET_CLIENT IS NOT NULL THEN
-    SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT;
-END IF;
-IF @OLD_CHARACTER_SET_RESULTS IS NOT NULL THEN
-    SET CHARACTER_SET_RESULTS = @OLD_CHARACTER_SET_RESULTS;
-END IF;
-IF @OLD_COLLATION_CONNECTION IS NOT NULL THEN
-    SET COLLATION_CONNECTION = @OLD_COLLATION_CONNECTION;
-END IF;

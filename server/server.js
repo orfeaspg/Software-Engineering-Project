@@ -236,18 +236,22 @@ app.get('/profile-posts', (req, res) => {
     });
 });
 
-//diary content query
+//diary-content query
 app.get('/diary-content', (req, res) => {
-    const userId = req.session.user.id;
-    const query = "SELECT * FROM `personal_diary_content` INNER JOIN `user` ON `personal_diary_content`.`user_id` = `user`.`id` WHERE `personal_diary_content`.`user_id` = ?;";
-    connection.query(query, [userId], (err, results) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send('Server error');
-        } else {
-            res.json(results);
-        }
-    });
+    if (req.session.user) {
+        const userId = req.session.user.id;
+        const query = "SELECT id, title FROM `personal_diary_content` WHERE `user_id` = ?";
+        connection.query(query, [userId], (err, results) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send('Server error');
+            } else {
+                res.json(results);
+            }
+        });
+    } else {
+        res.status(403).json({ message: "Unauthorized" });
+    }
 });
 
 app.get('/contact_us', (req, res) => {
@@ -280,3 +284,50 @@ app.get('/get-role', (req, res) => {
     }
 });
 
+// Specific diary entry query
+app.get('/diary-entry/:id', (req, res) => {
+    const userId = req.session.user.id;
+    const entryId = req.params.id;
+    const query = "SELECT * FROM `personal_diary_content` WHERE `user_id` = ? AND `id` = ?";
+    connection.query(query, [userId, entryId], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server error');
+        } else {
+            res.json(results);
+        }
+    });
+});
+
+// Route to get streaks data
+app.get('/streaks-data', (req, res) => {
+    if (req.session.user) {
+        const userId = req.session.user.id;
+        const query = "SELECT * FROM streaks WHERE user_id = ?";
+        connection.query(query, [userId], (err, results) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send('Server error');
+            } else {
+                res.json(results);
+            }
+        });
+    } else {
+        res.status(403).json({ message: "Unauthorized" });
+    }
+});
+
+// Route to update user anonymity status
+app.post('/toggle-anonymity', (req, res) => {
+    const userId = req.session.user.id; // Retrieve user ID from session
+    const { anonymous } = req.body; // Extract the anonymity status from the request body
+    const query = "UPDATE user SET anonymous = ? WHERE id = ?"; // SQL query to update the anonymity status
+    connection.query(query, [anonymous, userId], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ status: 'error', message: 'Server error' });
+        } else {
+            res.json({ status: 'success', message: 'Anonymity status updated successfully' });
+        }
+    });
+});
