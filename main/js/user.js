@@ -105,8 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     </div>
         
                                     <div class="caption">
-                                        <p>${link.description}
-                                        <span class="harsh-tag">#lifestyle</span></p>
+                                        <p><b>${link.name+" "+link.surname}</b> ${link.description}
                                     </div>
         
                                     <div class="comments text-muted">

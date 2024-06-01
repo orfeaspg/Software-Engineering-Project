@@ -165,7 +165,7 @@ window.onload = function (){
                             </div>
 
                             <div class="caption">
-                                <p><b>${link.name+" "+link.surname}</b> ${link.description}
+                                <p><b>${link.name+" "+link.surname}</b> ${link.description}</p>
                             </div>
 
                             <div class="comments text-muted">
