@@ -116,6 +116,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .catch(error => console.error('Error:', error));
         }
+        // Fetch user role
+        fetch('/get-role')
+            .then(response => response.json())
+            .then(data => {
+                // Check user role
+                if (data.role_id === 1) { // User role
+                    // Hide description for users
+                    document.querySelector('.description').style.display = 'none';
+                } else if (data.role_id === 4 || data.role_id === 5) { // Therapist or volunteer role
+                    // Hide level and anonymous option for therapists and volunteers
+                    document.querySelector('.streak-level').style.display = 'none';
+                    document.querySelector('.status-change').style.display = 'none';
+                }
+            })
+            .catch(error => console.error('Error:', error));
     };
 
     //logout
