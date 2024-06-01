@@ -274,7 +274,7 @@ INSERT INTO `user` (`id`, `username`, `name`, `surname`, `password`, `email`, `r
 (1, 'akis', 'Akis', 'Papapanagiotou', 'akis1', 'akis@example.com', 2, 0, '2024-05-28 21:07:40', '/main/images/profile-11.jpg'),
 (2, 'elena', 'Elena', 'Thanopoulou', 'elena1', 'elena@example.com', 2, 0, '2024-05-28 21:07:40', '/main/images/profile-12.jpg'),
 (3, 'iro', 'Iro', 'Kamarinou', 'iro1', 'iro@example.com', 2, 0, '2024-05-28 21:07:40', '/main/images/profile-13.jpg'),
-(4, 'orfeas', 'Orfeas', 'Pourdourides', 'orfeas1', 'orfeas@example.com', 2, 0, '2024-05-28 21:07:40', '/main/images/profile-15.jpg'),
+(4, 'orfeas', 'Orfeas', 'Pourgourides', 'orfeas1', 'orfeas@example.com', 2, 0, '2024-05-28 21:07:40', '/main/images/profile-15.jpg'),
 (5, 'thomas', 'Thomas', 'Nikolaou', 'thomas1', 'thomas@example.com', 2, 0, '2024-05-28 21:07:40', '/main/images/profile-16.jpg'),
 (6, 'chris', 'Chris', 'Papas', 'password1', 'chris@example.com', 1, 0, '2024-05-28 21:07:40', '/main/images/profile-17.jpg'),
 (7, 'sia', 'Sia', 'Panou', 'password1', 'sia@example.com', 3, 0, '2024-05-28 21:07:40', '/main/images/profile-18.jpg'),
