@@ -237,10 +237,10 @@ CREATE TABLE `streaks` (
 --
 
 INSERT INTO `streaks` (`id`, `name`, `user_id`, `start_date`, `end_date`) VALUES
-(1, 'Gleichner-Walter', 1, '2024-05-28 21:07:40', NULL),
-(2, 'Frami Inc', 2, '2024-05-28 21:07:40', NULL),
-(3, 'Quitzon Group', 3,'2024-05-28 21:07:40', NULL),
-(4, 'Cole LLC', 4, '2024-05-28 21:07:40', NULL),
+(1, 'Gleichner-Walter', 1, '2024-03-22 21:07:40', NULL),
+(2, 'Frami Inc', 2, '2024-02-21 21:07:40', NULL),
+(3, 'Quitzon Group', 3,'2024-01-10 21:07:40', NULL),
+(4, 'Cole LLC', 4, '2024-03-24 21:07:40', NULL),
 (5, 'Nader, McClure and Buckridge', 5, '2024-05-28 21:07:40', NULL),
 (6, 'Koss-Kling', 6, '2024-05-28 21:07:40', NULL),
 (7, 'Rempel-Will', 7, '2024-05-28 21:07:40', NULL),

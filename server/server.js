@@ -298,3 +298,21 @@ app.get('/diary-entry/:id', (req, res) => {
         }
     });
 });
+
+// Route to get streaks data
+app.get('/streaks-data', (req, res) => {
+    if (req.session.user) {
+        const userId = req.session.user.id;
+        const query = "SELECT * FROM streaks WHERE user_id = ?";
+        connection.query(query, [userId], (err, results) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send('Server error');
+            } else {
+                res.json(results);
+            }
+        });
+    } else {
+        res.status(403).json({ message: "Unauthorized" });
+    }
+});
