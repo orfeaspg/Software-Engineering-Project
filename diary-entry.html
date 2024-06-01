@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Title -->
-    <title>Personal Diary</title>
+    <title>Diary Entry</title>
     <link rel="icon" type="image/x-icon" href="main/images/logo.png">
     <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="main/css/personal-diary.css">
+    <link rel="stylesheet" href="main/css/diary-entry.css">
 </head>
 <body>
 <div id="menu-bar">
@@ -28,6 +28,7 @@
         <a id="adminLink" href="/admin">Admin Workbench</a>
     </div>
 
+
     <div class="right">
         <a class="profile">
             <div class="profile-photo">
@@ -41,30 +42,36 @@
     </div>
 </div>
 
-<div class="diary-container">
-    <aside class="left-column">
-        <div class="recent-entries-section">
-            <h2>Recent Entries:</h2>
-            <ul class="recent-entries-list" id="recent-entries-list">
-                <!-- Recent entries will be dynamically populated here -->
-            </ul>
-        </div>
-    </aside>
-    <main class="main-column">
-        <h2 class="entry-title" contenteditable="true">New Entry Title</h2>
-        <form class="entry-form">
-            <label for="entry-date">Date:</label>
-            <input type="date" id="entry-date" name="entry-date">
-            <label for="entry-content">Content:</label>
-            <textarea id="entry-content" name="entry-content" placeholder="Share your thoughts, feelings, and experiences here, in your safe space, as you navigate the road to recovery."></textarea>
-            <div class="form-actions">
-                <button type="submit" class="save-btn">Save</button>
-                <button type="button" class="cancel-btn">Cancel</button>
-            </div>
-        </form>
-    </main>
+<div class="diary-entry-container">
+    <h1 id="entry-title"></h1>
+    <p id="entry-date"></p>
+    <div id="entry-content"></div>
 </div>
 
+<script>
+    // Fetch and display the diary entry data
+    document.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        const entryId = params.get('id');
+        if (entryId) {
+            fetch(`/diary-entry/${entryId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('entry-title').textContent = data[0].title;
+                    document.getElementById('entry-date').textContent = new Date(data[0].date).toLocaleDateString();
+                    document.getElementById('entry-content').textContent = data[0].content;
+                })
+                .catch(error => console.error('Error fetching diary entry:', error));
+        } else {
+            console.error('Entry ID not found in URL');
+        }
+    });
+</script>
 <script src="main/js/script.js"></script>
 </body>
 </html>
