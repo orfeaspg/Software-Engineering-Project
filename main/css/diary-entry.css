@@ -153,6 +153,6 @@ body {
 
 .diary-entry-container #entry-date {
     font-size: 1.5rem;
-    color: var(--clr-light-gray);
+    color: var(--clr-dark-gray);
     margin-bottom: 2rem;
 }

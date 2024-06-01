@@ -62,9 +62,10 @@
                     return response.json();
                 })
                 .then(data => {
-                    document.getElementById('entry-title').textContent = data[0].title;
-                    document.getElementById('entry-date').textContent = new Date(data[0].date).toLocaleDateString();
-                    document.getElementById('entry-content').textContent = data[0].content;
+                    const entry = data[0];
+                    document.getElementById('entry-title').textContent = entry.title;
+                    document.getElementById('entry-date').textContent = new Date(entry.created_at).toLocaleDateString();
+                    document.getElementById('entry-content').textContent = entry.content;
                 })
                 .catch(error => console.error('Error fetching diary entry:', error));
         } else {
