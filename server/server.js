@@ -316,3 +316,18 @@ app.get('/streaks-data', (req, res) => {
         res.status(403).json({ message: "Unauthorized" });
     }
 });
+
+// Route to update user anonymity status
+app.post('/toggle-anonymity', (req, res) => {
+    const userId = req.session.user.id; // Retrieve user ID from session
+    const { anonymous } = req.body; // Extract the anonymity status from the request body
+    const query = "UPDATE user SET anonymous = ? WHERE id = ?"; // SQL query to update the anonymity status
+    connection.query(query, [anonymous, userId], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ status: 'error', message: 'Server error' });
+        } else {
+            res.json({ status: 'success', message: 'Anonymity status updated successfully' });
+        }
+    });
+});

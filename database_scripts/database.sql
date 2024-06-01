@@ -576,4 +576,3 @@ ALTER TABLE `user_messages`
   ADD CONSTRAINT `fk_user_messages_messages` FOREIGN KEY (`message_id`) REFERENCES `messages` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_user_messages_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON UPDATE CASCADE;
 COMMIT;
-
