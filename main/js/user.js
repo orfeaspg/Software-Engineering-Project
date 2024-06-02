@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch('/profile-posts')
                 .then(response => response.json())
                 .then(data => {
-                    let externalLinks = document.querySelector('#profile-posts');
-                    externalLinks.innerHTML = data.map(link => {
+                    let profilePosts = document.querySelector('#profile-posts');
+                    profilePosts.innerHTML = data.map(link => {
                         return `<div class="feed">
                                     <div class="head">
                                         <div class="user">
@@ -112,6 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
                                         View all 277 comments
                                     </div>
                                 </div>`;
+                    }).join('');
+                })
+                .catch(error => console.error('Error:', error));
+        }
+        if (document.querySelector('#num-of-posts')) {
+            fetch('/profile-num-of-posts')
+                .then(response => response.json())
+                .then(data => {
+                    let numofPosts = document.querySelector('#num-of-posts');
+                    numofPosts.innerHTML = data.map(link => {
+                        if(link.num > 1 || link.num === 0)
+                        {
+                            return `<h4>${link.num} Posts</h4>`;
+                        }
+                        else if(link.num === 1) return `<h3>${link.num} Post</h3>`;
                     }).join('');
                 })
                 .catch(error => console.error('Error:', error));

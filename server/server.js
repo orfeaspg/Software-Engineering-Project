@@ -236,6 +236,19 @@ app.get('/profile-posts', (req, res) => {
     });
 });
 
+app.get('/profile-num-of-posts', (req, res) => {
+    const userId = req.session.user.id;
+    const query = "SELECT COUNT(*) AS num FROM `posts` INNER JOIN `user` ON `posts`.`user_id` = `user`.`id` WHERE `posts`.`user_id` = ?;";
+    connection.query(query, [userId], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server error');
+        } else {
+            res.json(results);
+        }
+    });
+});
+
 //diary-content query
 app.get('/diary-content', (req, res) => {
     if (req.session.user) {
